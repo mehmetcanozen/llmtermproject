@@ -1,6 +1,6 @@
 # Deterministic Citation Enforcement in Retrieval-Augmented Generation
 
-**Group Members:** Mehmet Can Ozen (`20210808020`) and `ADD_OTHER_MEMBER_NAMES_HERE`
+**Group Members:** Mehmet Can Ozen (`20210808020`)
 
 ## Abstract
 

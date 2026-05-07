@@ -12,10 +12,10 @@ The main question is whether an inference-time attention gate and a deterministi
 
 - `src/`: core retrieval, prompting, generation, gate, verifier, evaluation, and final-asset code
 - `scripts/`: reproducible entrypoints for data prep, smoke checks, evaluation, and report generation
-- `data/`: bounded ASQA-derived local corpus and the synthetic finance dataset used by the project
+- `data/`: small fixed ASQA splits/manifests and the synthetic finance dataset used by the project
 - `outputs/final/`: final figures, tables, qualitative examples, and the detailed artifact report
-- `Docs/`: proposal and implementation notes
-- `Plans/` and `Progress/`: phase-by-phase engineering trail
+- `docs/meta/`: proposal, submission criteria, and implementation notes
+- `docs/plans/` and `docs/progress/`: phase-by-phase engineering trail
 
 ## Implemented System
 
@@ -31,7 +31,7 @@ The proposal originally mentioned a Llama-3 + LangChain/Chroma direction, but th
 
 ## Final Result Snapshot
 
-The authoritative evaluation status is in `outputs/evaluation/evaluation_manifest.json`.
+The packaged evaluation status for the GitHub repo is in `outputs/final/final_manifest.json`.
 
 - `formal_full_eval_pass: true`
 - locked 3B evaluation covers:
@@ -66,7 +66,7 @@ Interpretation: the generated distractor evidence strengthens the meaningful pro
 
 ## How To Run
 
-Use the existing conda environment:
+Use the existing conda environment. Full regeneration expects the local model/data paths in `configs/default.yaml`; bulky regenerated retrieval and run artifacts are intentionally ignored by Git.
 
 ```powershell
 $env:PYTHONNOUSERSITE='1'
@@ -88,7 +88,7 @@ Local model and dataset paths are configured in `configs/default.yaml`.
 
 ## Submission-Oriented Files
 
-- Short report draft: `SUBMISSION_REPORT_DRAFT.md`
+- Short report draft: `docs/submission/SUBMISSION_REPORT_DRAFT.md`
 - Full artifact report: `outputs/final/FINAL_REPORT.md`
 - Report asset index: `outputs/final/REPORT_ASSET_INDEX.md`
 - Final package manifest: `outputs/final/final_manifest.json`

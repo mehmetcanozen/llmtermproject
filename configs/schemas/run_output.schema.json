@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.llmtermproject/schemas/run_output.schema.json",
+  "title": "Run Output Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "example_id",
+    "dataset",
+    "system",
+    "question",
+    "retrieved_passages",
+    "answer",
+    "abstained",
+    "citations",
+    "generation"
+  ],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "example_id": {"type": "string", "minLength": 1},
+    "dataset": {"type": "string", "enum": ["asqa", "finance"]},
+    "system": {"type": "string", "enum": ["baseline", "gate_only", "gate_plus_verifier"]},
+    "question": {"type": "string", "minLength": 1},
+    "retrieved_passages": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "passage_id", "text", "rank", "score"],
+        "properties": {
+          "label": {"type": "string", "pattern": "^P[1-4]$"},
+          "passage_id": {"type": "string", "minLength": 1},
+          "text": {"type": "string"},
+          "rank": {"type": "integer", "minimum": 1, "maximum": 4},
+          "score": {"type": "number", "minimum": 0.0, "maximum": 1.0}
+        }
+      }
+    },
+    "answer": {"type": "string"},
+    "abstained": {"type": "boolean"},
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sentence_index", "labels"],
+        "properties": {
+          "sentence_index": {"type": "integer", "minimum": 0},
+          "labels": {
+            "type": "array",
+            "items": {"type": "string", "pattern": "^P[1-4]$"}
+          }
+        }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_id", "temperature", "do_sample", "max_new_tokens"],
+      "properties": {
+        "model_id": {"type": "string", "minLength": 1},
+        "temperature": {"type": "number", "minimum": 0.0},
+        "do_sample": {"type": "boolean"},
+        "max_new_tokens": {"type": "integer", "minimum": 1}
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "verifier": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+The project proposal should be one paragraph (200–400 words).
+
+Your proposal should describe:
+
+the problem you will investigate and why it is interesting
+
+the readings you will examine to provide context and background
+
+the data you will use, and if you are collecting new data, how you will collect it
+
+the method or algorithm you are proposing
+
+whether you will use existing implementations, how you will use them, and how you plan to improve or modify them
+
+your general approach to solving the problem, even if you do not yet have an exact answer
+
+how you will evaluate your results
+
+the kind of qualitative results you expect, such as plots or figures
+
+the quantitative analysis you will use to evaluate and/or compare your results, such as performance metrics or statistical tests
+
+if the project is combined with another course or research project, the unique portion that will count toward this class
+
+Submission: Please submit your proposal as a PDF.

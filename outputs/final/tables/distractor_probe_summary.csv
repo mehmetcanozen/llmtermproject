@@ -1,0 +1,7 @@
+system,dataset,probe_mode,example_count,original_hit_rate,competing_distractor_proxy_rate,same_title_distractor_rate,metric_delta_available
+baseline,asqa,static_prompt_injection_proxy_no_generation,40,0.800000,0.925000,0.050000,false
+baseline,finance,static_prompt_injection_proxy_no_generation,20,1.000000,0.050000,0.000000,false
+gate_only,asqa,static_prompt_injection_proxy_no_generation,40,0.800000,0.925000,0.050000,false
+gate_only,finance,static_prompt_injection_proxy_no_generation,20,1.000000,0.050000,0.000000,false
+gate_plus_verifier,asqa,static_prompt_injection_proxy_no_generation,40,0.800000,0.925000,0.050000,false
+gate_plus_verifier,finance,static_prompt_injection_proxy_no_generation,20,1.000000,0.050000,0.000000,false

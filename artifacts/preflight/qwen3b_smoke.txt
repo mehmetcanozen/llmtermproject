@@ -1,0 +1,27 @@
+Qwen 3B Smoke Summary
+
+Model path:
+C:\AI\models\QwenQwen2.5-3B-Instruct
+
+Basic smoke output:
+Always use them correctly.
+
+Determinism check:
+Run 1: Always use them correctly.
+Run 2: Always use them correctly.
+Matched: true
+
+Strict exact-five-words advisory check:
+Output: Always cite sources properly.
+Word count: 4
+Passed: false
+Severity: advisory
+
+Attention-output check:
+Prompt attentions layers: 36
+Prompt last-layer shape: [1, 16, 30, 30]
+Prompt last-token mean mass: 1.0
+Decode attentions layers: 36
+Decode last-layer shape: [1, 16, 1, 31]
+Decode last-token mean mass: 1.0
+Usable for token-level gate: true

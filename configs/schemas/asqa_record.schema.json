@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.llmtermproject/schemas/asqa_record.schema.json",
+  "title": "ASQA Normalized Example Or Corpus Passage",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "example_id",
+        "source_split",
+        "source_row_index",
+        "sample_id",
+        "ambiguous_question",
+        "qa_pair_count",
+        "qa_pairs",
+        "wikipages",
+        "annotations",
+        "gold_long_answers"
+      ],
+      "properties": {
+        "record_type": {"const": "asqa_example"},
+        "example_id": {"type": "string", "minLength": 1},
+        "source_split": {"type": "string", "enum": ["train", "dev"]},
+        "source_row_index": {"type": "integer", "minimum": 0},
+        "sample_id": {"type": "string", "minLength": 1},
+        "ambiguous_question": {"type": "string", "minLength": 1},
+        "qa_pair_count": {"type": "integer", "minimum": 0},
+        "qa_pairs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["question", "context", "short_answers", "wikipage"],
+            "properties": {
+              "question": {"type": "string"},
+              "context": {"type": ["string", "null"]},
+              "short_answers": {"type": "array", "items": {"type": "string"}},
+              "wikipage": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "wikipages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title", "url"],
+            "properties": {
+              "title": {"type": ["string", "null"]},
+              "url": {"type": ["string", "null"]}
+            }
+          }
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["long_answer", "knowledge"],
+            "properties": {
+              "long_answer": {"type": ["string", "null"]},
+              "knowledge": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["content", "wikipage"],
+                  "properties": {
+                    "content": {"type": ["string", "null"]},
+                    "wikipage": {"type": ["string", "null"]}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "gold_long_answers": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "passage_id",
+        "source_example_id",
+        "source_split",
+        "source_row_index",
+        "title",
+        "text",
+        "provenance"
+      ],
+      "properties": {
+        "record_type": {"const": "asqa_passage"},
+        "passage_id": {"type": "string", "minLength": 1},
+        "source_example_id": {"type": "string", "minLength": 1},
+        "source_split": {"type": "string", "enum": ["train", "dev"]},
+        "source_row_index": {"type": "integer", "minimum": 0},
+        "title": {"type": ["string", "null"]},
+        "text": {"type": "string", "minLength": 1},
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["annotation_index", "knowledge_index", "dedup_key"],
+          "properties": {
+            "annotation_index": {"type": "integer", "minimum": 0},
+            "knowledge_index": {"type": "integer", "minimum": 0},
+            "dedup_key": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    }
+  ]
+}

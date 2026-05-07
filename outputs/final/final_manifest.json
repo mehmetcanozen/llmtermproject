@@ -1,0 +1,51 @@
+{
+  "created_at": "2026-05-02T18:34:20.874650+00:00",
+  "examples": {
+    "count": 8,
+    "index": "outputs/final/examples/example_index.csv"
+  },
+  "figures": [
+    "outputs\\final\\figures\\unsupported_non_abstained.png",
+    "outputs\\final\\figures\\abstention_vs_coverage.png",
+    "outputs\\final\\figures\\finance_citation_accuracy.png",
+    "outputs\\final\\figures\\distractor_sensitivity.png",
+    "outputs\\final\\figures\\generated_distractor_robustness.png"
+  ],
+  "fixed_eval_sources": {
+    "asqa_dev_eval_200": "data/asqa/splits/dev_eval_200.jsonl",
+    "finance_full_100": "data/finance/generated/questions.jsonl",
+    "scored_prediction_ids": "outputs/evaluation/eval_split_ids.json"
+  },
+  "formal_full_eval_pass": true,
+  "metric_source": "outputs\\evaluation\\metric_tables.csv",
+  "package_status": "complete_full_3b_eval_package",
+  "phase": "08_Experiments_Figures_and_Report_Assets",
+  "report_notes": "outputs/final/report_notes.md",
+  "run_manifests_used": {
+    "baseline_smoke": "outputs/runs/baseline_smoke/run_manifest.json",
+    "chosen_gate_config": "outputs/calibration/chosen_gate_config.yaml",
+    "gate_smoke_3b": "outputs/runs/gate_smoke/run_manifest.json",
+    "gate_smoke_7b_transfer": "outputs/runs/gate_smoke_7b_check/run_manifest.json",
+    "phase07_evaluation": "outputs/calibration/evaluation_manifest.json"
+  },
+  "scope_warning": "Full locked 3B baseline and gate-only predictions are present for dev_eval_200 and finance_full_100.",
+  "tables": {
+    "asqa_metrics": "outputs/final/tables/asqa_metrics.csv",
+    "distractor_probe": "outputs/final/tables/distractor_probe.csv",
+    "distractor_probe_summary": "outputs/final/tables/distractor_probe_summary.csv",
+    "finance_metrics": "outputs/final/tables/finance_metrics.csv",
+    "generated_distractor_metrics": "outputs/final/tables/generated_distractor_metrics.csv",
+    "system_comparison": "outputs/final/tables/system_comparison.csv"
+  },
+  "validation": {
+    "all_required_figures_exist": true,
+    "all_required_tables_exist": true,
+    "all_three_systems_represented": true,
+    "curated_example_count_at_least_8": true,
+    "figures_generated_from_saved_tables": true,
+    "generated_distractor_metrics_included": true,
+    "report_notes_include_required_limitations": true,
+    "same_fixed_ids_full_eval": true,
+    "same_fixed_ids_note": "Full 3B fixed IDs are complete."
+  }
+}

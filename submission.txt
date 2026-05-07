@@ -1,0 +1,40 @@
+Each group must submit the following items:
+
+Final Report PDF
+Submit a manually written, original report of 2–3 pages. Rather than submitting a fully AI-generated, long report, your report should clearly and concisely explain your own project work.
+
+The report should include the following sections:
+
+Title and Group Members
+Abstract
+Problem Definition and Motivation
+Dataset / Data Source
+LLM Methodology
+Describe the model, prompting strategy, fine-tuning method, RAG pipeline, evaluation setup, or other LLM-based approach used in the project.
+Experiments and Results
+Present quantitative and/or qualitative results, example outputs, comparisons, and error analysis.
+Discussion and Limitations
+Conclusion
+References
+GitHub Repository
+Each group must upload their project code to GitHub and include the repository link in the submission.
+
+The repository should include:
+
+source code or notebooks,
+a short README.md,
+instructions for running the project,
+information about required libraries or APIs,
+sample inputs/outputs if applicable.
+Project Video
+Each group must submit a 5–10 minute video explaining the project and showing a demo.
+
+The video should briefly cover:
+
+project goal,
+data or task description,
+LLM-based method,
+experiments and results,
+limitations,
+demo of the system, notebook, or application.
+Only one submission per group is required. The final report must include the names of all group members.

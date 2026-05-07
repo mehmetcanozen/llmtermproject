@@ -1,0 +1,1600 @@
+{
+  "summary": {
+    "abstained": 22,
+    "failed": 5,
+    "false_attribution": 5,
+    "passed": 39,
+    "source_counts": {
+      "outputs\\runs\\baseline_smoke\\predictions.jsonl": 20,
+      "outputs\\runs\\gate_smoke\\predictions.jsonl": 12,
+      "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl": 12
+    },
+    "verdict_count": 44
+  },
+  "verdicts": [
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_train_00061",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_train_00124",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_000267_a6e1ca439ca5"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Michael Jace played Michael Jordan in the movie Michael Jordan: An American Hero [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_train_00197",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "the beast"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_001173_1d02498dc79a"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Gugu Mbatha-Raw plays 'the beast' in Disney's live action movie Beauty and the Beast [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_train_00234",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "2007",
+              "4",
+              "0"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_000431_d295d388468a"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The last time an NBA team swept in the finals was in 2007 when the San Antonio Spurs swept the Cleveland Cavaliers 4-0 [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_train_00291",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "221"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_009665_4a6995d0203d"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Construction started on the Great Wall of China in 221 BC [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_train_00308",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "1987",
+              "15",
+              "16"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_000520_7b47d9571666"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Great storm of 1987 happened on the night of 15\u201316 October [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_train_00309",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "Son of Walter",
+              "Son of Water"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_000521_c453da300ddb",
+            "asqa_passage_000522_85d1543eb83c"
+          ],
+          "errors": [],
+          "labels": [
+            "P1",
+            "P2"
+          ],
+          "sentence": "Watson (given name) is of English and Scottish origin, meaning \"Son of Walter\" or \"Son of Water\", the name originating in Old English because in medieval times the usual pronunciation of Walter was Water [P1][P2].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_train_00365",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_train_00397",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_train_00478",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_010108_9c6a45eb34e3"
+          ],
+          "errors": [],
+          "labels": [
+            "P2"
+          ],
+          "sentence": "Aquatic [P2]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [
+          "fin_passage_000_00"
+        ],
+        "gold_answerable": true
+      },
+      "example_id": "fin_q_000",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": false,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [
+          "fin_passage_001_01"
+        ],
+        "gold_answerable": true
+      },
+      "example_id": "fin_q_001",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": false,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_002_02"
+        ],
+        "company_name": "Brindle Vale Robotics",
+        "expected_passage_ids": [
+          "fin_passage_002_02"
+        ],
+        "gold_answer": "236 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_002",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_002_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The cash reserve for Brindle Vale Robotics in Q3 FY2025 was 236 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [
+          "fin_passage_003_00"
+        ],
+        "gold_answerable": true
+      },
+      "example_id": "fin_q_003",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": false,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_004_01"
+        ],
+        "company_name": "Cobalt Nera Foods",
+        "expected_passage_ids": [
+          "fin_passage_004_01"
+        ],
+        "gold_answer": "96 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "operating_income",
+        "period": "Q2 FY2025"
+      },
+      "example_id": "fin_q_004",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_004_01"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "operating income for Cobalt Nera Foods in Q2 FY2025 was 96 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_005_02"
+        ],
+        "company_name": "Cobalt Nira Foods",
+        "expected_passage_ids": [
+          "fin_passage_005_02"
+        ],
+        "gold_answer": "277 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_005",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_005_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The cash reserve for Cobalt Nira Foods in Q3 FY2025 was 277 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [
+          "fin_passage_006_00"
+        ],
+        "gold_answerable": true
+      },
+      "example_id": "fin_q_006",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": false,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [
+          "fin_passage_007_01"
+        ],
+        "gold_answerable": true
+      },
+      "example_id": "fin_q_007",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": false,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_008_02"
+        ],
+        "company_name": "Eldin Quartz Media",
+        "expected_passage_ids": [
+          "fin_passage_008_02"
+        ],
+        "gold_answer": "353 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_008",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_008_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Eldin Quartz Media had a cash reserve of 353 million fictional credits in Q3 FY2025 [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [
+          "fin_passage_009_00"
+        ],
+        "gold_answerable": true
+      },
+      "example_id": "fin_q_009",
+      "run_id": "baseline_smoke_3b_phase04",
+      "sentences": [],
+      "source_file": "outputs\\runs\\baseline_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": false,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "baseline"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_075",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_002_02"
+        ],
+        "company_name": "Brindle Vale Robotics",
+        "expected_passage_ids": [
+          "fin_passage_002_02"
+        ],
+        "gold_answer": "236 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_002",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_002_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Brindle Vale Robotics had a cash reserve of 236 million fictional credits in Q3 FY2025 [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_076",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_004_01"
+        ],
+        "company_name": "Cobalt Nera Foods",
+        "expected_passage_ids": [
+          "fin_passage_004_01"
+        ],
+        "gold_answer": "96 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "operating_income",
+        "period": "Q2 FY2025"
+      },
+      "example_id": "fin_q_004",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_004_01"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Operating income for Cobalt Nera Foods in Q2 FY2025 was 96 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_077",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_005_02"
+        ],
+        "company_name": "Cobalt Nira Foods",
+        "expected_passage_ids": [
+          "fin_passage_005_02"
+        ],
+        "gold_answer": "277 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_005",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_005_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The cash reserve for Cobalt Nira Foods in Q3 FY2025 was 277 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_078",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_008_02"
+        ],
+        "company_name": "Eldin Quartz Media",
+        "expected_passage_ids": [
+          "fin_passage_008_02"
+        ],
+        "gold_answer": "353 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_008",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_008_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Eldin Quartz Media had a cash reserve of 353 million fictional credits in Q3 FY2025 [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_079",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_011_02"
+        ],
+        "company_name": "Glimmer Nocturne Works",
+        "expected_passage_ids": [
+          "fin_passage_011_02"
+        ],
+        "gold_answer": "372 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_011",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_011_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The cash reserve for Glimmer Nocturne Works in Q3 FY2025 was 372 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_080",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_014_02"
+        ],
+        "company_name": "Juniper Solace Textiles",
+        "expected_passage_ids": [
+          "fin_passage_014_02"
+        ],
+        "gold_answer": "447 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_014",
+      "run_id": "gate_smoke_3b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_014_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The cash reserve for Juniper Solace Textiles in Q3 FY2025 was 447 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_075",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": false
+        },
+        "cited_passage_ids": [
+          "fin_passage_002_02"
+        ],
+        "company_name": "Brindle Vale Robotics",
+        "expected_passage_ids": [
+          "fin_passage_002_02"
+        ],
+        "gold_answer": "236 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_002",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_002_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The cash reserve for Brindle Vale Robotics in Q3 FY2225 was 236 million fictional credits. [P1]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [
+          "finance_period_mismatch"
+        ],
+        "exact_answer_correct": false,
+        "false_attribution": true,
+        "passed": false,
+        "sentence_count": 1,
+        "support_passed": false
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_076",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [
+          "fin_passage_004_01"
+        ],
+        "gold_answerable": true
+      },
+      "example_id": "fin_q_004",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": false,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_077",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": false
+        },
+        "cited_passage_ids": [
+          "fin_passage_005_02"
+        ],
+        "company_name": "Cobalt Nira Foods",
+        "expected_passage_ids": [
+          "fin_passage_005_02"
+        ],
+        "gold_answer": "277 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_005",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_005_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The cash reserve for Cobalt Nira Foods in Q3 FY2225 was 277 million fictional credits. [P1]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [
+          "finance_period_mismatch"
+        ],
+        "exact_answer_correct": false,
+        "false_attribution": true,
+        "passed": false,
+        "sentence_count": 1,
+        "support_passed": false
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_078",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": false
+        },
+        "cited_passage_ids": [
+          "fin_passage_008_02"
+        ],
+        "company_name": "Eldin Quartz Media",
+        "expected_passage_ids": [
+          "fin_passage_008_02"
+        ],
+        "gold_answer": "353 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_008",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_008_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The cash reserve for Eldin Quartz Media in Q3 FY222 was 353 million fictional credits. [P1]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [
+          "finance_period_mismatch"
+        ],
+        "exact_answer_correct": false,
+        "false_attribution": true,
+        "passed": false,
+        "sentence_count": 1,
+        "support_passed": false
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_079",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": false
+        },
+        "cited_passage_ids": [
+          "fin_passage_011_02"
+        ],
+        "company_name": "Glimmer Nocturne Works",
+        "expected_passage_ids": [
+          "fin_passage_011_02"
+        ],
+        "gold_answer": "372 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_011",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_011_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The cash reserve for Glimmer Nocturne Works in Q3 FY2225 was 372 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [
+          "finance_period_mismatch"
+        ],
+        "exact_answer_correct": false,
+        "false_attribution": true,
+        "passed": false,
+        "sentence_count": 1,
+        "support_passed": false
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [],
+        "gold_answerable": false
+      },
+      "example_id": "fin_q_080",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": false
+        },
+        "cited_passage_ids": [
+          "fin_passage_014_02"
+        ],
+        "company_name": "Juniper Solace Textiles",
+        "expected_passage_ids": [
+          "fin_passage_014_02"
+        ],
+        "gold_answer": "447 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_014",
+      "run_id": "gate_smoke_7b_phase05",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_014_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The cash reserve for Juniper Solace Textiles in Q3 FY2225 was 447 million fictional credits. [P1]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\gate_smoke_7b_check\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [
+          "finance_period_mismatch"
+        ],
+        "exact_answer_correct": false,
+        "false_attribution": true,
+        "passed": false,
+        "sentence_count": 1,
+        "support_passed": false
+      },
+      "system": "gate_only"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "counts": {
+    "answerable": 85,
+    "composition": {
+      "exact_numeric": 40,
+      "near_duplicate_issuer_trap": 15,
+      "retrieval_collision_distractor": 10,
+      "unanswerable": 15,
+      "wrong_period_trap": 20
+    },
+    "passages": 84,
+    "questions": 100,
+    "unanswerable": 15
+  },
+  "dataset": "finance",
+  "determinism_check": {
+    "same_example_ids_and_gold_answers": true
+  },
+  "fictional_only": true,
+  "issuer_count": 28,
+  "metrics": [
+    "revenue",
+    "operating_income",
+    "cash_reserve"
+  ],
+  "outputs": {
+    "passages": "data\\finance\\corpus\\passages.jsonl",
+    "questions": "data\\finance\\generated\\questions.jsonl"
+  },
+  "periods": [
+    "Q1 FY2025",
+    "Q2 FY2025",
+    "Q3 FY2025"
+  ],
+  "phase": "02_Data_Pipelines_and_Dataset_Contracts",
+  "schemas": {
+    "finance_record": "configs/schemas/finance_record.schema.json"
+  },
+  "seed": 20260416
+}

@@ -1,0 +1,73 @@
+{
+  "phase": "00_Preflight_and_Environment_Verification",
+  "phase_status": "passed",
+  "timestamp": "2026-04-16_1905",
+  "system": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python_version": "3.11.15",
+    "python_executable": "C:\\Users\\omehm\\anaconda3\\envs\\llm-citation\\python.exe",
+    "gpu_name": "NVIDIA GeForce RTX 5070",
+    "driver_version": "591.86",
+    "gpu_memory_total": "12227 MiB",
+    "compute_capability": "12.0"
+  },
+  "core_packages": {
+    "torch": "2.11.0+cu128",
+    "torchvision": "0.26.0+cu128",
+    "torchaudio": "2.11.0+cu128",
+    "bitsandbytes": "0.49.2",
+    "transformers": "5.5.4",
+    "accelerate": "1.13.0",
+    "sentence_transformers": "5.4.1",
+    "datasets": "4.8.4",
+    "chromadb": "1.5.7"
+  },
+  "local_assets": {
+    "qwen_3b_path": "C:\\AI\\models\\QwenQwen2.5-3B-Instruct",
+    "qwen_7b_path": "C:\\AI\\models\\QwenQwen2.5-7B-Instruct",
+    "bge_path": "C:\\AI\\models\\BAAIbge-small-en-v1.5",
+    "asqa_train_parquet": "C:\\AI\\data\\asqa\\data\\train-00000-of-00001-87b7d64f7913b544.parquet",
+    "asqa_dev_parquet": "C:\\AI\\data\\asqa\\data\\dev-00000-of-00001-58a9a40c6e69f07b.parquet",
+    "alce_reference_path": "C:\\SoftwareProjects\\LLMTermProject\\external\\ALCE_reference"
+  },
+  "preflight_checks": {
+    "smoke_test_report": "artifacts/preflight/smoke_test_report.json",
+    "risk_check_report_3b": "artifacts/preflight/risk_check_report.json",
+    "risk_check_report_7b": "artifacts/preflight/risk_check_report_7b.json",
+    "requirements_lock": "artifacts/preflight/requirements-lock.txt",
+    "torch_bitsandbytes_passed": true,
+    "qwen_3b_4bit_load_passed": true,
+    "bge_embedding_load_passed": true,
+    "asqa_load_passed": true,
+    "alce_reference_check_passed": true,
+    "qwen_3b_determinism_passed": true,
+    "qwen_3b_attention_output_passed": true,
+    "qwen_7b_determinism_passed": true,
+    "qwen_7b_attention_output_passed": true,
+    "qwen_3b_token_level_gate_ready": true,
+    "qwen_7b_token_level_gate_ready": true
+  },
+  "observations": {
+    "qwen_3b_smoke_text": "Always use them correctly.",
+    "qwen_3b_repeat_text": "Always use them correctly.",
+    "qwen_7b_repeat_text": "Always include them for credibility.",
+    "asqa_train_examples": 4353,
+    "asqa_dev_examples": 948,
+    "instruction_following_exact_five_words_3b": {
+      "passed": false,
+      "severity": "advisory",
+      "generated_text": "Always cite sources properly."
+    },
+    "instruction_following_exact_five_words_7b": {
+      "passed": false,
+      "severity": "advisory",
+      "generated_text": "Always include accurate sources."
+    }
+  },
+  "known_caveats": [
+    "Prompt-only instruction following is not reliable enough for formatting-sensitive behavior; the project should continue to rely on deterministic validation and verification.",
+    "User-site Python packages exist on this machine. Preflight passed using the llm-citation interpreter, and future commands should keep PYTHONNOUSERSITE=1 for reproducibility."
+  ],
+  "next_phase_ready": true,
+  "next_recommended_phase": "01_Repo_Scaffold_and_Config"
+}

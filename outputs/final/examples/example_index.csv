@@ -1,0 +1,9 @@
+index,category,dataset,system,example_id,path,reason
+1,baseline_failure,finance,baseline,fin_q_000,outputs/final/examples/01_baseline_failure_fin_q_000.json,Baseline abstained on an answerable finance question.
+2,baseline_failure,finance,baseline,fin_q_001,outputs/final/examples/02_baseline_failure_fin_q_001.json,Baseline abstained on an answerable finance question.
+3,gate_success,finance,gate_only,fin_q_002,outputs/final/examples/03_gate_success_fin_q_002.json,Gate-only 3B answered with exact finance value and expected cited passage.
+4,gate_success,finance,gate_only,fin_q_004,outputs/final/examples/04_gate_success_fin_q_004.json,Gate-only 3B answered with exact finance value and expected cited passage.
+5,verifier_catch,finance,gate_only,fin_q_002,outputs/final/examples/05_verifier_catch_fin_q_002.json,Verifier caught a citation-formatted but unsupported answer: finance_period_mismatch.
+6,verifier_catch,finance,gate_only,fin_q_005,outputs/final/examples/06_verifier_catch_fin_q_005.json,Verifier caught a citation-formatted but unsupported answer: finance_period_mismatch.
+7,distractor_probe_case,asqa,baseline,asqa_dev_00004,outputs/final/examples/07_distractor_probe_case_asqa_dev_00004.json,Static probe added one plausible irrelevant distractor passage to the prompt input.
+8,distractor_probe_case,asqa,baseline,asqa_dev_00013,outputs/final/examples/08_distractor_probe_case_asqa_dev_00013.json,Static probe added one plausible irrelevant distractor passage to the prompt input.

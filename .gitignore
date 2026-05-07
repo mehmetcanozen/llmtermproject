@@ -1,0 +1,94 @@
+# Python bytecode and test caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.pytest_tmp/
+pytest-cache-files-*/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Local virtual environments
+.venv/
+venv/
+env/
+ENV/
+.conda/
+conda-meta/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.code-workspace
+
+# Secrets and local machine configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Large model/checkpoint/data artifacts
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.onnx.data
+*.gguf
+*.npz
+*.pkl
+*.joblib
+*.parquet
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+models/
+model_cache/
+huggingface_cache/
+.cache/
+
+# Experiment trackers and ad hoc run logs
+wandb/
+mlruns/
+
+# Local/generated ASQA material. Keep the small fixed splits and manifests.
+data/asqa/corpus/
+data/asqa/normalized/
+data/asqa/raw/
+data/asqa/downloads/
+!data/asqa/splits/
+!data/asqa/splits/**
+!data/asqa/manifests/
+!data/asqa/manifests/**
+
+# Generated outputs. Keep only the final lightweight report package.
+outputs/*
+!outputs/final/
+!outputs/final/**
+
+# Scratch output from tests and local experiments
+outputs/test/
+artifacts/tmp/
+artifacts/cache/
+
+# Do not vendor downloaded third-party reference repositories.
+external/ALCE_reference/

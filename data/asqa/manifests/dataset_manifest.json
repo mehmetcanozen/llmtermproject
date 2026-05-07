@@ -1,0 +1,66 @@
+{
+  "counts": {
+    "corpus_passages": 10367,
+    "dev_eval_200": 200,
+    "dev_eval_buckets": {
+      "2-3": 100,
+      "4-5": 70,
+      "6+": 30
+    },
+    "dev_examples": 948,
+    "train_calibration_100": 100,
+    "train_examples": 4353
+  },
+  "dataset": "asqa",
+  "observed_schema": {
+    "columns": [
+      "ambiguous_question",
+      "qa_pairs",
+      "wikipages",
+      "annotations",
+      "sample_id"
+    ],
+    "nested_fields": {
+      "annotations": [
+        "knowledge",
+        "long_answer"
+      ],
+      "annotations.knowledge": [
+        "content",
+        "wikipage"
+      ],
+      "qa_pairs": [
+        "context",
+        "question",
+        "short_answers",
+        "wikipage"
+      ],
+      "wikipages": [
+        "title",
+        "url"
+      ]
+    }
+  },
+  "outputs": {
+    "calibration": "data\\asqa\\splits\\train_calibration_100.jsonl",
+    "dev_eval": "data\\asqa\\splits\\dev_eval_200.jsonl",
+    "dev_full": "data\\asqa\\normalized\\dev_full.jsonl",
+    "passages": "data\\asqa\\corpus\\passages.jsonl",
+    "train_full": "data\\asqa\\normalized\\train_full.jsonl"
+  },
+  "passage_build": {
+    "dedup_rule": "lowercase whitespace-normalized title plus lowercase whitespace-normalized text",
+    "duplicate_passages_skipped": 550,
+    "empty_knowledge_items_skipped": 6,
+    "unique_passages": 10367
+  },
+  "phase": "02_Data_Pipelines_and_Dataset_Contracts",
+  "schemas": {
+    "asqa_record": "configs/schemas/asqa_record.schema.json"
+  },
+  "seed": 20260416,
+  "source_files": {
+    "dev_parquet": "C:\\AI\\data\\asqa\\data\\dev-00000-of-00001-58a9a40c6e69f07b.parquet",
+    "train_parquet": "C:\\AI\\data\\asqa\\data\\train-00000-of-00001-87b7d64f7913b544.parquet"
+  }
+}

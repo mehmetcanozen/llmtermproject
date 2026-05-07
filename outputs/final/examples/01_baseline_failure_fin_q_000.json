@@ -1,0 +1,45 @@
+{
+  "abstained": true,
+  "answer": "INSUFFICIENT_SUPPORT",
+  "category": "baseline_failure",
+  "dataset": "finance",
+  "domain_details": {
+    "expected_passage_ids": [
+      "fin_passage_000_00"
+    ],
+    "gold_answerable": true
+  },
+  "example_id": "fin_q_000",
+  "question": "What was the revenue for Aster Quill Systems in Q1 FY2025?",
+  "reason": "Baseline abstained on an answerable finance question.",
+  "retrieved_passages": [
+    {
+      "label": "P1",
+      "passage_id": "fin_passage_000_00",
+      "text": "Aster Quill Systems. Fictional issuer disclosure for Aster Quill Systems in Q1 FY2025: revenue was 108 million fictional credits, operating income was 57 million fictional credits, cash reserve was 173 million fictional credits. These values are synthetic and not tied to a real company."
+    },
+    {
+      "label": "P2",
+      "passage_id": "fin_passage_000_01",
+      "text": "Aster Quill Systems. Fictional issuer disclosure for Aster Quill Systems in Q2 FY2025: revenue was 114 million fictional credits, operating income was 70 million fictional credits, cash reserve was 182 million fictional credits. These values are synthetic and not tied to a real company."
+    },
+    {
+      "label": "P3",
+      "passage_id": "fin_passage_000_02",
+      "text": "Aster Quill Systems. Fictional issuer disclosure for Aster Quill Systems in Q3 FY2025: revenue was 146 million fictional credits, operating income was 74 million fictional credits, cash reserve was 197 million fictional credits. These values are synthetic and not tied to a real company."
+    }
+  ],
+  "run_id": "baseline_smoke_3b_phase04",
+  "system": "baseline",
+  "verifier_summary": {
+    "abstained": true,
+    "citation_format_valid": true,
+    "correct_citation": null,
+    "errors": [],
+    "exact_answer_correct": false,
+    "false_attribution": false,
+    "passed": true,
+    "sentence_count": 0,
+    "support_passed": true
+  }
+}

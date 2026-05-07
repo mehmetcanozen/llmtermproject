@@ -1,0 +1,61 @@
+{
+  "abstained": false,
+  "answer": "The cash reserve for Brindle Vale Robotics in Q3 FY2225 was 236 million fictional credits. [P1]",
+  "category": "verifier_catch",
+  "dataset": "finance",
+  "domain_details": {
+    "checks": {
+      "cited_passage_id": true,
+      "company_name": true,
+      "metric_type": true,
+      "numeric_value": true,
+      "period": false
+    },
+    "cited_passage_ids": [
+      "fin_passage_002_02"
+    ],
+    "company_name": "Brindle Vale Robotics",
+    "expected_passage_ids": [
+      "fin_passage_002_02"
+    ],
+    "gold_answer": "236 million fictional credits",
+    "gold_answerable": true,
+    "metric_type": "cash_reserve",
+    "period": "Q3 FY2025"
+  },
+  "example_id": "fin_q_002",
+  "question": "What was the cash reserve for Brindle Vale Robotics in Q3 FY2025?",
+  "reason": "Verifier caught a citation-formatted but unsupported answer: finance_period_mismatch.",
+  "retrieved_passages": [
+    {
+      "label": "P1",
+      "passage_id": "fin_passage_002_02",
+      "text": "Brindle Vale Robotics. Fictional issuer disclosure for Brindle Vale Robotics in Q3 FY2025: revenue was 165 million fictional credits, operating income was 93 million fictional credits, cash reserve was 236 million fictional credits. These values are synthetic and not tied to a real company."
+    },
+    {
+      "label": "P2",
+      "passage_id": "fin_passage_002_00",
+      "text": "Brindle Vale Robotics. Fictional issuer disclosure for Brindle Vale Robotics in Q1 FY2025: revenue was 129 million fictional credits, operating income was 75 million fictional credits, cash reserve was 229 million fictional credits. These values are synthetic and not tied to a real company."
+    },
+    {
+      "label": "P3",
+      "passage_id": "fin_passage_002_01",
+      "text": "Brindle Vale Robotics. Fictional issuer disclosure for Brindle Vale Robotics in Q2 FY2025: revenue was 138 million fictional credits, operating income was 76 million fictional credits, cash reserve was 224 million fictional credits. These values are synthetic and not tied to a real company."
+    }
+  ],
+  "run_id": "gate_smoke_7b_phase05",
+  "system": "gate_only",
+  "verifier_summary": {
+    "abstained": false,
+    "citation_format_valid": true,
+    "correct_citation": true,
+    "errors": [
+      "finance_period_mismatch"
+    ],
+    "exact_answer_correct": false,
+    "false_attribution": true,
+    "passed": false,
+    "sentence_count": 1,
+    "support_passed": false
+  }
+}

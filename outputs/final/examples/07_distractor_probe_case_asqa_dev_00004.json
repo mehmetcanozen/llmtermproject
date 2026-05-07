@@ -1,0 +1,18 @@
+{
+  "category": "distractor_probe_case",
+  "competing_distractor_proxy": true,
+  "dataset": "asqa",
+  "distractor": {
+    "parent_passage_id": "asqa_passage_005270_66842be5f375",
+    "source_list": "raw_dense_candidates",
+    "text": "Government of Virginia. The government of Virginia combines the Executive, Legislative and Judicial branches of authority in the Commonwealth of Virginia. The current Governor of Virginia is Ralph Northam. The State Capitol building in Richmond was designed...",
+    "title": "Government of Virginia"
+  },
+  "example_id": "asqa_dev_00004",
+  "original_hit_top3": true,
+  "probe_mode": "static_prompt_injection_proxy_no_generation",
+  "question": "How many state parks are there in virginia?",
+  "reason": "Static probe added one plausible irrelevant distractor passage to the prompt input.",
+  "scope_note": "Prompt-input probe only; no new model generations were run in this iteration.",
+  "system": "baseline"
+}

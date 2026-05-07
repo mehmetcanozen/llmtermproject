@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.llmtermproject/schemas/finance_record.schema.json",
+  "title": "Synthetic Finance Passage Or Question",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "passage_id",
+        "company_name",
+        "issuer_id",
+        "period",
+        "metric_values",
+        "text"
+      ],
+      "properties": {
+        "record_type": {"const": "finance_passage"},
+        "passage_id": {"type": "string", "minLength": 1},
+        "company_name": {"type": "string", "minLength": 1},
+        "issuer_id": {"type": "string", "minLength": 1},
+        "period": {"type": "string", "minLength": 1},
+        "metric_values": {
+          "type": "object",
+          "additionalProperties": {"type": "integer", "minimum": 1}
+        },
+        "text": {"type": "string", "minLength": 1}
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "example_id",
+        "question_type",
+        "question",
+        "gold_answer",
+        "answerable",
+        "expected_passage_ids",
+        "metric_type",
+        "company_name",
+        "period"
+      ],
+      "properties": {
+        "record_type": {"const": "finance_question"},
+        "example_id": {"type": "string", "minLength": 1},
+        "question_type": {
+          "type": "string",
+          "enum": [
+            "exact_numeric",
+            "wrong_period_trap",
+            "near_duplicate_issuer_trap",
+            "unanswerable",
+            "retrieval_collision_distractor"
+          ]
+        },
+        "question": {"type": "string", "minLength": 1},
+        "gold_answer": {"type": "string"},
+        "answerable": {"type": "boolean"},
+        "expected_passage_ids": {"type": "array", "items": {"type": "string"}},
+        "metric_type": {"type": "string", "minLength": 1},
+        "company_name": {"type": "string", "minLength": 1},
+        "period": {"type": "string", "minLength": 1},
+        "metadata": {"type": "object", "additionalProperties": true}
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "config": "C:\\SoftwareProjects\\LLMTermProject\\configs\\default.yaml",
+  "contract": {
+    "config_sections": [
+      "project",
+      "paths",
+      "model",
+      "retrieval",
+      "prompt",
+      "gate",
+      "verifier",
+      "evaluation"
+    ],
+    "manifest_run_id": "contract_validation_phase01",
+    "output_example_id": "sample_asqa_0001"
+  },
+  "seed_report": {
+    "seed": 20260416,
+    "python_hash_seed": "20260416",
+    "numpy_seeded": true,
+    "torch_seeded": true,
+    "cuda_seeded": true,
+    "deterministic_torch": true
+  }
+}

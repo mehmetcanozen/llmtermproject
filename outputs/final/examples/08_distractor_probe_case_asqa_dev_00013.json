@@ -1,0 +1,18 @@
+{
+  "category": "distractor_probe_case",
+  "competing_distractor_proxy": true,
+  "dataset": "asqa",
+  "distractor": {
+    "parent_passage_id": "asqa_passage_001766_0996df0a734b",
+    "source_list": "raw_dense_candidates",
+    "text": "Jersey Shore: Family Vacation. Jersey Shore: Family Vacation is an American reality television series that premiered globally, April 5, 2018 on MTV.",
+    "title": "Jersey Shore: Family Vacation"
+  },
+  "example_id": "asqa_dev_00013",
+  "original_hit_top3": false,
+  "probe_mode": "static_prompt_injection_proxy_no_generation",
+  "question": "When did the last season of jersey shore air?",
+  "reason": "Static probe added one plausible irrelevant distractor passage to the prompt input.",
+  "scope_note": "Prompt-input probe only; no new model generations were run in this iteration.",
+  "system": "baseline"
+}

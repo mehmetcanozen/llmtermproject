@@ -1,0 +1,49 @@
+{
+  "discovered_paths": {
+    "qwen3b_path": "C:\\AI\\models\\QwenQwen2.5-7B-Instruct"
+  },
+  "model_load": {
+    "model_path": "C:\\AI\\models\\QwenQwen2.5-7B-Instruct",
+    "used_4bit": true,
+    "attn_implementation": "eager"
+  },
+  "determinism_check": {
+    "prompt": "Reply with exactly five words about citations.",
+    "run_1": "Always include them for credibility.",
+    "run_2": "Always include them for credibility.",
+    "matched": true
+  },
+  "attention_output_check": {
+    "prompt_attentions_layers": 28,
+    "prompt_last_layer_shape": [
+      1,
+      28,
+      30,
+      30
+    ],
+    "prompt_last_token_mean_mass": 1.0,
+    "decode_attentions_layers": 28,
+    "decode_last_layer_shape": [
+      1,
+      28,
+      1,
+      31
+    ],
+    "decode_last_token_mean_mass": 1.0,
+    "used_eager_backend": true,
+    "usable_for_token_level_gate": true
+  },
+  "instruction_following_check": {
+    "prompt": "Reply with exactly five words about citations. Use plain words only and no numbering.",
+    "generated_text": "Always include accurate sources.",
+    "word_count": 4,
+    "words": [
+      "Always",
+      "include",
+      "accurate",
+      "sources"
+    ],
+    "passed": false,
+    "severity": "advisory"
+  }
+}

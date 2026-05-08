@@ -41,8 +41,13 @@ def test_distractor_probe_adds_one_prompt_passage_for_each_system() -> None:
         "raw_bm25_candidates": [],
     }
     rows = build_distractor_probe_rows([], [candidate], asqa_count=0, finance_count=1)
-    assert len(rows) == 3
-    assert {row["system"] for row in rows} == {"baseline", "gate_only", "gate_plus_verifier"}
+    assert len(rows) == 4
+    assert {row["system"] for row in rows} == {
+        "baseline",
+        "gate_only",
+        "gate_plus_verifier",
+        "repair_plus_verifier",
+    }
     assert all(row["added_distractor_count"] == 1 for row in rows)
     assert all(row["probe_prompt_passage_count"] == 4 for row in rows)
 

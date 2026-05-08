@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+from pathlib import Path
+from uuid import uuid4
+
 import numpy as np
 
+from src.locked_runs import validate_retrieval_artifacts
 from src.retrieval import HybridRetriever, RetrievalDefaults, build_chunk_records
 
 
@@ -31,3 +35,20 @@ def test_hybrid_retriever_returns_three_prompt_chunks() -> None:
     result = retriever.retrieve("alpha revenue", np.asarray([1.0, 0.0, 0.0, 0.0], dtype=np.float32))
     assert len(result["merged_top3"]) == 3
     assert result["merged_top3"][0]["parent_passage_id"] == "p0"
+
+
+def test_retrieval_validation_rejects_zero_byte_embeddings() -> None:
+    repo_root = Path("outputs") / "test" / f"retrieval_validation_{uuid4().hex}"
+    retrieval_dir = repo_root / "outputs" / "retrieval"
+    retrieval_dir.mkdir(parents=True)
+    (retrieval_dir / "asqa_chunks.jsonl").write_text(
+        '{"chunk_id":"c0","parent_passage_id":"p0","text":"support"}\n',
+        encoding="utf-8",
+    )
+    (retrieval_dir / "asqa_dense_embeddings.npz").write_bytes(b"")
+    try:
+        validate_retrieval_artifacts(repo_root, "asqa")
+    except ValueError as exc:
+        assert "Empty retrieval artifact" in str(exc)
+    else:  # pragma: no cover - keeps assertion message clear
+        raise AssertionError("zero-byte retrieval embeddings should fail validation")

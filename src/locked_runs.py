@@ -13,7 +13,7 @@ import numpy as np
 from src.attention_gate import GateSettings, generate_with_attention_gate
 from src.config import load_schema, validate_with_schema
 from src.data_loading import read_jsonl
-from src.generation import GenerationSettings, generate_run_record, stable_jsonl
+from src.generation import GenerationSettings, generate_repair_plus_verifier_record, generate_run_record, stable_jsonl
 from src.retrieval import HybridRetriever, RetrievalDefaults, encode_texts, load_chunks, load_dense_index
 
 
@@ -28,6 +28,34 @@ EXISTING_CANDIDATES = {
     ("asqa", "dev_eval_200"): Path("outputs/retrieval/asqa_candidates.jsonl"),
     ("finance", "finance_full_100"): Path("outputs/retrieval/finance_candidates.jsonl"),
 }
+
+
+def validate_retrieval_artifacts(repo_root: Path, dataset: str) -> dict[str, Any]:
+    retrieval_dir = repo_root / "outputs" / "retrieval"
+    chunks_path = retrieval_dir / f"{dataset}_chunks.jsonl"
+    dense_path = retrieval_dir / f"{dataset}_dense_embeddings.npz"
+    missing = [str(path.relative_to(repo_root)) for path in (chunks_path, dense_path) if not path.exists()]
+    if missing:
+        raise FileNotFoundError(f"Missing retrieval artifact(s) for {dataset}: {', '.join(missing)}")
+    empty = [str(path.relative_to(repo_root)) for path in (chunks_path, dense_path) if path.stat().st_size <= 0]
+    if empty:
+        raise ValueError(f"Empty retrieval artifact(s) for {dataset}: {', '.join(empty)}. Rebuild with scripts/build_retrieval_index.py.")
+    chunks = load_chunks(chunks_path)
+    chunk_ids, embeddings = load_dense_index(dense_path)
+    if len(chunks) != int(embeddings.shape[0]):
+        raise ValueError(
+            f"Retrieval artifact mismatch for {dataset}: {len(chunks)} chunks but {int(embeddings.shape[0])} embedding rows"
+        )
+    if len(chunk_ids) != len(chunks):
+        raise ValueError(
+            f"Retrieval artifact mismatch for {dataset}: {len(chunk_ids)} chunk ids but {len(chunks)} chunks"
+        )
+    return {
+        "dataset": dataset,
+        "chunks": len(chunks),
+        "embedding_rows": int(embeddings.shape[0]),
+        "embedding_dim": int(embeddings.shape[1]) if len(embeddings.shape) > 1 else 0,
+    }
 
 
 @dataclass(frozen=True)
@@ -126,6 +154,7 @@ def query_records_from_split(repo_root: Path, dataset: str, split: str, support:
 
 def load_retriever(repo_root: Path, dataset: str, defaults: RetrievalDefaults) -> HybridRetriever:
     retrieval_dir = repo_root / "outputs" / "retrieval"
+    validate_retrieval_artifacts(repo_root, dataset)
     chunks = load_chunks(retrieval_dir / f"{dataset}_chunks.jsonl")
     _, embeddings = load_dense_index(retrieval_dir / f"{dataset}_dense_embeddings.npz")
     return HybridRetriever(chunks, embeddings, defaults)
@@ -174,13 +203,14 @@ def load_or_build_candidates(
 ) -> list[dict[str, Any]]:
     existing = EXISTING_CANDIDATES.get((dataset, split))
     if use_existing and existing and (repo_root / existing).exists():
+        validate_retrieval_artifacts(repo_root, dataset)
         return read_jsonl(repo_root / existing)
 
     defaults = defaults_from_config(config)
     retriever = load_retriever(repo_root, dataset, defaults)
     support = asqa_support_map(retriever.chunks) if dataset == "asqa" else None
     queries = query_records_from_split(repo_root, dataset, split, support)
-    return retrieve_records(
+    records = retrieve_records(
         queries,
         retriever,
         Path(config["retrieval"]["local_embedding_path"]),
@@ -188,6 +218,11 @@ def load_or_build_candidates(
         retrieval_batch_size,
         retrieval_device,
     )
+    if existing:
+        output_path = repo_root / existing
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(stable_jsonl(records), encoding="utf-8")
+    return records
 
 
 def choose_distractor(record: dict[str, Any]) -> dict[str, Any]:
@@ -294,6 +329,16 @@ def run_locked_generation(
     completed = 0
     skipped = 0
     failures: list[dict[str, Any]] = []
+    finance_gold: dict[str, dict[str, Any]] = {}
+    asqa_gold: dict[str, dict[str, Any]] = {}
+    if request.system == "repair_plus_verifier":
+        from src.verifier import load_asqa_gold, load_finance_gold
+
+        finance_gold = load_finance_gold(read_jsonl(repo_root / FINANCE_SPLITS["finance_full_100"]))
+        asqa_gold = load_asqa_gold(
+            read_jsonl(repo_root / ASQA_SPLITS["train_calibration_100"])
+            + read_jsonl(repo_root / ASQA_SPLITS["dev_eval_200"])
+        )
     for index, candidate in enumerate(selected, start=request.start):
         if candidate["example_id"] in already_done:
             skipped += 1
@@ -325,6 +370,18 @@ def run_locked_generation(
                     store_layer_scores=request.store_layer_scores,
                     prompt_passage_count=request.prompt_passage_count,
                 )
+            elif request.system == "repair_plus_verifier":
+                prediction = generate_repair_plus_verifier_record(
+                    tokenizer,
+                    model,
+                    candidate,
+                    generation_settings,
+                    run_id,
+                    finance_gold=finance_gold,
+                    asqa_gold=asqa_gold,
+                    prompt_passage_count=request.prompt_passage_count,
+                )
+                trace = None
             else:
                 raise ValueError(f"Unsupported generation system: {request.system}")
             validate_prediction(prediction)

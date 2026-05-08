@@ -21,9 +21,30 @@ Passages:
 {passages}
 
 Answer style:
-- If answerable, use one concise sentence.
+- {answer_style}
 - Do not explain why other passages are irrelevant.
 - Put citation markers at the end of the sentence.
+
+Answer:"""
+
+REPAIR_PROMPT_TEMPLATE = """Question:
+{question}
+
+Passages:
+{passages}
+
+Previous answer:
+{failed_answer}
+
+Verifier errors:
+{verifier_errors}
+
+Repair instructions:
+- Use only the passages above.
+- Fix only claims that can be directly supported by the cited passage text.
+- {answer_style}
+- Every factual sentence must end with one or more citation markers.
+- If the passages do not fully support a corrected answer, output exactly: INSUFFICIENT_SUPPORT
 
 Answer:"""
 
@@ -73,16 +94,76 @@ def render_passage_block(passages: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
-def build_messages(question: str, passages: list[dict[str, Any]]) -> list[dict[str, str]]:
-    user_prompt = USER_PROMPT_TEMPLATE.format(question=question, passages=render_passage_block(passages))
+def answer_style_for_dataset(dataset: str | None) -> str:
+    if dataset == "asqa":
+        return "If answerable, use one to three concise sentences to cover the question's distinct parts."
+    if dataset == "finance":
+        return "If answerable, use one concise sentence with the company, period, metric, and exact value."
+    return "If answerable, use one concise sentence."
+
+
+def build_messages(question: str, passages: list[dict[str, Any]], *, dataset: str | None = None) -> list[dict[str, str]]:
+    user_prompt = USER_PROMPT_TEMPLATE.format(
+        question=question,
+        passages=render_passage_block(passages),
+        answer_style=answer_style_for_dataset(dataset),
+    )
     return [
         {"role": "system", "content": ANSWER_CONTRACT},
         {"role": "user", "content": user_prompt},
     ]
 
 
-def build_chat_prompt(tokenizer: Any, question: str, passages: list[dict[str, Any]]) -> str:
-    return tokenizer.apply_chat_template(build_messages(question, passages), tokenize=False, add_generation_prompt=True)
+def build_repair_messages(
+    question: str,
+    passages: list[dict[str, Any]],
+    *,
+    failed_answer: str,
+    verifier_errors: list[str],
+    dataset: str | None = None,
+) -> list[dict[str, str]]:
+    error_text = "\n".join(f"- {error}" for error in verifier_errors) if verifier_errors else "- verifier_failed"
+    user_prompt = REPAIR_PROMPT_TEMPLATE.format(
+        question=question,
+        passages=render_passage_block(passages),
+        failed_answer=failed_answer,
+        verifier_errors=error_text,
+        answer_style=answer_style_for_dataset(dataset),
+    )
+    return [
+        {"role": "system", "content": ANSWER_CONTRACT},
+        {"role": "user", "content": user_prompt},
+    ]
+
+
+def build_chat_prompt(tokenizer: Any, question: str, passages: list[dict[str, Any]], *, dataset: str | None = None) -> str:
+    return tokenizer.apply_chat_template(
+        build_messages(question, passages, dataset=dataset),
+        tokenize=False,
+        add_generation_prompt=True,
+    )
+
+
+def build_repair_chat_prompt(
+    tokenizer: Any,
+    question: str,
+    passages: list[dict[str, Any]],
+    *,
+    failed_answer: str,
+    verifier_errors: list[str],
+    dataset: str | None = None,
+) -> str:
+    return tokenizer.apply_chat_template(
+        build_repair_messages(
+            question,
+            passages,
+            failed_answer=failed_answer,
+            verifier_errors=verifier_errors,
+            dataset=dataset,
+        ),
+        tokenize=False,
+        add_generation_prompt=True,
+    )
 
 
 def split_answer_sentences(answer: str) -> list[str]:

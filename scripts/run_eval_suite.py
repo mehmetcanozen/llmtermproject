@@ -115,12 +115,41 @@ def main() -> int:
         full_3b_groups.get(f"finance|{system}|3b|locked_fixed_split|recorded_prediction", set()) >= finance_ids
         for system in ("baseline", "gate_only")
     )
+    repair_full_3b_asqa = full_3b_groups.get(
+        "asqa|repair_plus_verifier|3b|locked_fixed_split|recorded_prediction",
+        set(),
+    ) >= dev_ids
+    repair_full_3b_finance = full_3b_groups.get(
+        "finance|repair_plus_verifier|3b|locked_fixed_split|recorded_prediction",
+        set(),
+    ) >= finance_ids
+    full_7b_groups = {
+        key: set(ids)
+        for key, ids in actual_scored_ids.items()
+        if "|7b|" in key and "|recorded_prediction" in key
+    }
+    repair_full_7b_asqa = full_7b_groups.get(
+        "asqa|repair_plus_verifier|7b|locked_fixed_split|recorded_prediction",
+        set(),
+    ) >= dev_ids
+    repair_full_7b_finance = full_7b_groups.get(
+        "finance|repair_plus_verifier|7b|locked_fixed_split|recorded_prediction",
+        set(),
+    ) >= finance_ids
     formal_full_eval_pass = bool(full_3b_asqa and full_3b_finance)
+    repair_plus_full_eval_pass = bool(
+        repair_full_3b_asqa and repair_full_3b_finance and repair_full_7b_asqa and repair_full_7b_finance
+    )
     split_payload = {
         "created_at": datetime.now(timezone.utc).isoformat(),
         "expected_eval_splits": expected_eval_splits,
         "actual_scored_prediction_ids_by_group": actual_scored_ids,
         "formal_full_eval_pass": formal_full_eval_pass,
+        "repair_plus_full_eval_pass": repair_plus_full_eval_pass,
+        "repair_plus_scope_warning": None if repair_plus_full_eval_pass else (
+            "Metric tables do not yet include full repair_plus_verifier 3B and 7B locked predictions "
+            "on both dev_eval_200 and finance_full_100."
+        ),
         "scope_warning": None if formal_full_eval_pass else (
             "Metric tables do not yet include full 3B locked predictions for baseline and gate_only "
             "on both dev_eval_200 and finance_full_100."
@@ -143,9 +172,15 @@ def main() -> int:
         "systems_present": sorted({row["system"] for row in rows}),
         "datasets_present": sorted({row["dataset"] for row in rows}),
         "formal_full_eval_pass": formal_full_eval_pass,
+        "repair_plus_full_eval_pass": repair_plus_full_eval_pass,
         "full_3b_asqa": full_3b_asqa,
         "full_3b_finance": full_3b_finance,
+        "repair_full_3b_asqa": repair_full_3b_asqa,
+        "repair_full_3b_finance": repair_full_3b_finance,
+        "repair_full_7b_asqa": repair_full_7b_asqa,
+        "repair_full_7b_finance": repair_full_7b_finance,
         "scope_warning": split_payload["scope_warning"],
+        "repair_plus_scope_warning": split_payload["repair_plus_scope_warning"],
     }
     (output_dir / "evaluation_manifest.json").write_text(
         json.dumps(manifest, indent=2, ensure_ascii=True, sort_keys=True),
@@ -160,7 +195,9 @@ def main() -> int:
                 "metric_tables": manifest["metric_tables"],
                 "confidence_intervals": manifest["confidence_intervals"],
                 "formal_full_eval_pass": formal_full_eval_pass,
+                "repair_plus_full_eval_pass": repair_plus_full_eval_pass,
                 "scope_warning": manifest["scope_warning"],
+                "repair_plus_scope_warning": manifest["repair_plus_scope_warning"],
             },
             indent=2,
         )

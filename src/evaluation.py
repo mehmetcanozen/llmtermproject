@@ -413,7 +413,13 @@ def confidence_intervals(
             if dataset == "asqa"
             else ["exact_answer_accuracy", "unsupported_non_abstained_rate", "false_attribution_rate", "abstention_rate"]
         )
-        for left, right in (("baseline", "gate_only"), ("baseline", "gate_plus_verifier"), ("gate_only", "gate_plus_verifier")):
+        for left, right in (
+            ("baseline", "gate_only"),
+            ("baseline", "gate_plus_verifier"),
+            ("gate_only", "gate_plus_verifier"),
+            ("baseline", "repair_plus_verifier"),
+            ("gate_plus_verifier", "repair_plus_verifier"),
+        ):
             comparisons.append(
                 {
                     "name": f"{left}_3b_vs_{right}_3b_{dataset}_overlap",
@@ -426,17 +432,21 @@ def confidence_intervals(
                 }
             )
         if any(score.dataset == dataset and score.model_size == "7b" for score in scores):
-            comparisons.append(
-                {
-                    "name": f"gate_only_7b_vs_gate_plus_verifier_7b_{dataset}_transfer",
-                    "dataset": dataset,
-                    "left_system": "gate_only",
-                    "right_system": "gate_plus_verifier",
-                    "left_model_size": "7b",
-                    "right_model_size": "7b",
-                    "metrics": metrics,
-                }
-            )
+            for left, right in (
+                ("gate_only", "gate_plus_verifier"),
+                ("gate_plus_verifier", "repair_plus_verifier"),
+            ):
+                comparisons.append(
+                    {
+                        "name": f"{left}_7b_vs_{right}_7b_{dataset}_transfer",
+                        "dataset": dataset,
+                        "left_system": left,
+                        "right_system": right,
+                        "left_model_size": "7b",
+                        "right_model_size": "7b",
+                        "metrics": metrics,
+                    }
+                )
     output: dict[str, Any] = {
         "method": "paired bootstrap percentile interval",
         "samples": samples,

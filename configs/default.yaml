@@ -85,6 +85,7 @@ evaluation:
     - baseline
     - gate_only
     - gate_plus_verifier
+    - repair_plus_verifier
   calibration_seed: 20260416
   calibration_examples: 100
   dev_eval_examples: 200

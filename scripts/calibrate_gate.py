@@ -32,9 +32,10 @@ def repo_relative(path: Path) -> str:
     return str(resolved.resolve().relative_to(REPO_ROOT))
 
 
-THRESHOLDS = [0.05, 0.10, 0.15, 0.20, 0.25]
-TAIL_LAYERS = [2, 4]
-CONSECUTIVE_FAILURES = [2, 3]
+THRESHOLDS = [0.03, 0.05, 0.08, 0.10, 0.12, 0.15, 0.20, 0.25, 0.30]
+TAIL_LAYERS = [1, 2, 4, 8]
+CONSECUTIVE_FAILURES = [1, 2, 3, 4]
+ROLLING_WINDOWS = [3, 4, 5, 6]
 
 
 def mean_bool(values: list[bool]) -> float | None:
@@ -130,6 +131,7 @@ def rank_key(row: dict[str, Any]) -> tuple[Any, ...]:
         row["abstention_rate"] if row["abstention_rate"] is not None else 1.0,
         0 if int(row["tail_layers"]) == 4 else 1,
         threshold_distance,
+        abs(int(row["rolling_window"]) - 4),
         0 if int(row["consecutive_failures"]) == 3 else 1,
     )
 
@@ -172,33 +174,28 @@ def main() -> int:
     if missing:
         raise ValueError(f"Trace examples missing verifier scores: {missing}")
 
-    rolling_window = int(config["gate"]["rolling_window"])
     gate_example_ids = set(base_scores_by_id)
     baseline_metrics = baseline_overlap_metrics(scores, gate_example_ids, trace_dataset)
     rows: list[dict[str, Any]] = []
     stage_a_traces = traces[:60]
     for threshold in THRESHOLDS:
-        rows.append(
-            evaluate_candidate(
-                stage="A",
-                traces=stage_a_traces,
-                base_scores_by_id=base_scores_by_id,
-                threshold=threshold,
-                tail_layers=4,
-                consecutive_failures=3,
-                rolling_window=rolling_window,
-                baseline_metrics=baseline_metrics,
+        for rolling_window in ROLLING_WINDOWS:
+            rows.append(
+                evaluate_candidate(
+                    stage="A",
+                    traces=stage_a_traces,
+                    base_scores_by_id=base_scores_by_id,
+                    threshold=threshold,
+                    tail_layers=4,
+                    consecutive_failures=3,
+                    rolling_window=rolling_window,
+                    baseline_metrics=baseline_metrics,
+                )
             )
-        )
-    top_thresholds = [
-        row["threshold"]
-        for row in sorted([row for row in rows if row["stage"] == "A"], key=lambda row: (
-            row["unsupported_non_abstained_rate"] if row["unsupported_non_abstained_rate"] is not None else 1.0,
-            -(row["answer_coverage"] if row["answer_coverage"] is not None else -1.0),
-            abs(float(row["threshold"]) - 0.10),
-        ))[:2]
-    ]
-    for threshold in top_thresholds:
+    top_stage_a = sorted([row for row in rows if row["stage"] == "A"], key=rank_key)[:4]
+    for stage_a_row in top_stage_a:
+        threshold = float(stage_a_row["threshold"])
+        rolling_window = int(stage_a_row["rolling_window"])
         for tail_layers in TAIL_LAYERS:
             for consecutive_failures in CONSECUTIVE_FAILURES:
                 rows.append(
@@ -280,7 +277,7 @@ def main() -> int:
         },
         "limitations": [
             f"Trace dataset: {trace_dataset}; trace count: {len(traces)}.",
-            "Stage A uses the first 60 traces; Stage B uses all traces and sweeps the top 2 Stage A thresholds.",
+            "Stage A uses the first 60 traces; Stage B uses all traces and sweeps tail/consecutive settings for the top 4 Stage A threshold/window pairs.",
             "Tail-layer sweeps are exact only when traces contain layer_passage_scores; otherwise legacy smoke traces remain proxy rows.",
             "The chosen config is acceptable for final evaluation only if this file was produced from train_calibration_100 traces.",
         ],

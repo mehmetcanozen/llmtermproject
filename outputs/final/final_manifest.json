@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-05-02T18:34:20.874650+00:00",
+  "created_at": "2026-05-07T23:59:21.368897+00:00",
   "examples": {
     "count": 8,
     "index": "outputs/final/examples/example_index.csv"
@@ -9,6 +9,8 @@
     "outputs\\final\\figures\\abstention_vs_coverage.png",
     "outputs\\final\\figures\\finance_citation_accuracy.png",
     "outputs\\final\\figures\\distractor_sensitivity.png",
+    "outputs\\final\\figures\\safety_vs_coverage_frontier.png",
+    "outputs\\final\\figures\\repair_funnel.png",
     "outputs\\final\\figures\\generated_distractor_robustness.png"
   ],
   "fixed_eval_sources": {
@@ -31,19 +33,23 @@
   "scope_warning": "Full locked 3B baseline and gate-only predictions are present for dev_eval_200 and finance_full_100.",
   "tables": {
     "asqa_metrics": "outputs/final/tables/asqa_metrics.csv",
+    "coverage_safety_summary": "outputs/final/tables/coverage_safety_summary.csv",
     "distractor_probe": "outputs/final/tables/distractor_probe.csv",
     "distractor_probe_summary": "outputs/final/tables/distractor_probe_summary.csv",
     "finance_metrics": "outputs/final/tables/finance_metrics.csv",
     "generated_distractor_metrics": "outputs/final/tables/generated_distractor_metrics.csv",
+    "repair_salvage": "outputs/final/tables/repair_salvage.csv",
     "system_comparison": "outputs/final/tables/system_comparison.csv"
   },
   "validation": {
+    "all_base_systems_represented": true,
     "all_required_figures_exist": true,
     "all_required_tables_exist": true,
     "all_three_systems_represented": true,
     "curated_example_count_at_least_8": true,
     "figures_generated_from_saved_tables": true,
     "generated_distractor_metrics_included": true,
+    "repair_plus_verifier_represented": true,
     "report_notes_include_required_limitations": true,
     "same_fixed_ids_full_eval": true,
     "same_fixed_ids_note": "Full 3B fixed IDs are complete."

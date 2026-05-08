@@ -101,7 +101,7 @@ def generate_with_attention_gate(
     import torch
 
     passages = prepare_prompt_passages(candidate_record["merged_top3"], required_count=prompt_passage_count)
-    prompt = build_chat_prompt(tokenizer, candidate_record["question"], passages)
+    prompt = build_chat_prompt(tokenizer, candidate_record["question"], passages, dataset=candidate_record["dataset"])
     passage_spans = map_passage_token_spans(tokenizer, prompt, passages)
 
     encoded = tokenizer([prompt], return_tensors="pt")

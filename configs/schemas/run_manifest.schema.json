@@ -31,7 +31,7 @@
     },
     "system": {
       "type": "string",
-      "enum": ["baseline", "gate_only", "gate_plus_verifier", "preflight", "validation"]
+      "enum": ["baseline", "gate_only", "gate_plus_verifier", "repair_plus_verifier", "preflight", "validation"]
     },
     "model": {
       "type": "object",

@@ -1,6 +1,6 @@
 {
   "asset_index": "outputs/final/REPORT_ASSET_INDEX.md",
-  "created_at": "2026-05-02T18:34:24.265125+00:00",
+  "created_at": "2026-05-07T23:59:21.435458+00:00",
   "examples": {
     "count": 8,
     "index": "outputs/final/examples/example_index.csv"
@@ -10,6 +10,8 @@
     "outputs\\final\\figures\\abstention_vs_coverage.png",
     "outputs\\final\\figures\\finance_citation_accuracy.png",
     "outputs\\final\\figures\\distractor_sensitivity.png",
+    "outputs\\final\\figures\\safety_vs_coverage_frontier.png",
+    "outputs\\final\\figures\\repair_funnel.png",
     "outputs\\final\\figures\\generated_distractor_robustness.png"
   ],
   "formal_full_eval_pass": true,
@@ -17,10 +19,12 @@
   "scope_warning": "Full locked 3B baseline and gate-only predictions are present for dev_eval_200 and finance_full_100.",
   "tables": {
     "asqa_metrics": "outputs/final/tables/asqa_metrics.csv",
+    "coverage_safety_summary": "outputs/final/tables/coverage_safety_summary.csv",
     "distractor_probe": "outputs/final/tables/distractor_probe.csv",
     "distractor_probe_summary": "outputs/final/tables/distractor_probe_summary.csv",
     "finance_metrics": "outputs/final/tables/finance_metrics.csv",
     "generated_distractor_metrics": "outputs/final/tables/generated_distractor_metrics.csv",
+    "repair_salvage": "outputs/final/tables/repair_salvage.csv",
     "system_comparison": "outputs/final/tables/system_comparison.csv"
   }
 }

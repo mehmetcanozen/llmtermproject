@@ -43,7 +43,7 @@ def default_output_dir(system: str, dataset: str, split: str, model_size: str, r
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run resumable locked generation on fixed project splits.")
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG_PATH)
-    parser.add_argument("--system", choices=["baseline", "gate_only"], required=True)
+    parser.add_argument("--system", choices=["baseline", "gate_only", "repair_plus_verifier"], required=True)
     parser.add_argument("--model-size", choices=["3b", "7b"], default="3b")
     parser.add_argument("--dataset", choices=["asqa", "finance"], required=True)
     parser.add_argument("--split", choices=["train_calibration_100", "dev_eval_200", "finance_full_100"], required=True)
@@ -70,7 +70,7 @@ def main() -> int:
         parser.error("Finance runs must use finance_full_100")
     if args.distractor and args.prompt_passage_count != 4:
         parser.error("--distractor requires --prompt-passage-count 4")
-    if args.system == "baseline" and (args.collect_traces or args.store_layer_scores or args.no_gate_abort):
+    if args.system != "gate_only" and (args.collect_traces or args.store_layer_scores or args.no_gate_abort):
         parser.error("Trace/gate options only apply to gate_only")
 
     config = load_config(args.config)

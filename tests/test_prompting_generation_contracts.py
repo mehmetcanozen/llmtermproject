@@ -1,6 +1,12 @@
 from __future__ import annotations
 
-from src.prompting import ABSTENTION, enforce_format_or_abstain, prepare_prompt_passages, validate_answer_format
+from src.prompting import (
+    ABSTENTION,
+    build_repair_messages,
+    enforce_format_or_abstain,
+    prepare_prompt_passages,
+    validate_answer_format,
+)
 
 
 def test_format_validator_accepts_cited_sentence() -> None:
@@ -35,3 +41,30 @@ def test_format_enforcer_repositions_existing_citation() -> None:
     assert raw_validation.valid is False
     assert final_validation.valid is True
     assert final_answer == "The value was 236 million fictional credits [P1]."
+
+
+def test_asqa_multi_sentence_format_requires_each_sentence_cited() -> None:
+    result = validate_answer_format("First supported fact [P1]. Second unsupported sentence.")
+    assert result.valid is False
+    assert "sentence_1_missing_citation" in result.errors
+
+
+def test_finance_repair_prompt_does_not_receive_gold_answer() -> None:
+    passages = prepare_prompt_passages(
+        [
+            {"parent_passage_id": "p1", "text": "Acme FY2025 revenue was 42 credits.", "score": 1.0},
+            {"parent_passage_id": "p2", "text": "Acme FY2024 revenue was 39 credits.", "score": 0.8},
+            {"parent_passage_id": "p3", "text": "Beta FY2025 revenue was 77 credits.", "score": 0.4},
+        ]
+    )
+    messages = build_repair_messages(
+        "What was Acme revenue in FY2025?",
+        passages,
+        failed_answer="Acme FY2025 revenue was 41 credits [P1].",
+        verifier_errors=["wrong_numeric_value"],
+        dataset="finance",
+    )
+    prompt = messages[1]["content"]
+    assert "wrong_numeric_value" in prompt
+    assert "42 credits" in prompt
+    assert "999 credits" not in prompt

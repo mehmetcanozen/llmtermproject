@@ -64,11 +64,15 @@ limitations:
 - `outputs/final/tables/system_comparison.csv`
 - `outputs/final/tables/asqa_metrics.csv`
 - `outputs/final/tables/finance_metrics.csv`
+- `outputs/final/tables/coverage_safety_summary.csv`
+- `outputs/final/tables/repair_salvage.csv`
 - `outputs/final/tables/distractor_probe.csv`
 - `outputs/final/tables/distractor_probe_summary.csv`
 - `outputs/final/tables/generated_distractor_metrics.csv` when generated distractor runs are available.
 - `outputs/final/figures/unsupported_non_abstained.png`
 - `outputs/final/figures/abstention_vs_coverage.png`
+- `outputs/final/figures/safety_vs_coverage_frontier.png`
+- `outputs/final/figures/repair_funnel.png`
 - `outputs/final/figures/finance_citation_accuracy.png`
 - `outputs/final/figures/distractor_sensitivity.png`
 - `outputs/final/figures/generated_distractor_robustness.png` when generated distractor runs are available.
@@ -77,7 +81,7 @@ limitations:
 
 - Curated examples: `8`.
 - Index: `outputs/final/examples/example_index.csv`.
-- Categories: baseline failures, gate successes, verifier catches, and distractor-probe cases.
+- Categories: baseline failures, gate successes, verifier catches, repair outcomes when available, and distractor-probe cases.
 
 ## Required Limitations
 
@@ -97,7 +101,8 @@ limitations:
 
 ## Snapshot Summary
 
-- Systems represented in saved metrics: `baseline, gate_only, gate_plus_verifier`.
+- Systems represented in saved metrics: `baseline, gate_only, gate_plus_verifier, repair_plus_verifier`.
 - Datasets represented in saved metrics: `asqa, finance`.
-- Distractor probe rows: `180`.
-- Generated distractor metric rows: `6`.
+- Distractor probe rows: `240`.
+- Generated distractor metric rows: `2`.
+- Repair salvage rows: `4`.

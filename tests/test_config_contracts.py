@@ -26,6 +26,21 @@ def test_sample_output_validates_against_schema() -> None:
     validate_with_schema(output, load_schema("run_output.schema.json"))
 
 
+def test_repair_plus_verifier_output_metadata_validates_against_schema() -> None:
+    config = load_config()
+    output = sample_run_output(config)
+    output["system"] = "repair_plus_verifier"
+    output["metadata"] = {
+        **output["metadata"],
+        "strategy": "accepted_after_repair",
+        "repair_attempted": True,
+        "repair_errors": ["wrong_numeric_value"],
+        "accepted_after_repair": True,
+    }
+    output["verifier"] = {"final_summary": {"passed": True}}
+    validate_with_schema(output, load_schema("run_output.schema.json"))
+
+
 def test_seed_helper_sets_python_numpy_and_torch_without_crashing() -> None:
     report = set_global_seed(1234)
     first_random = random.random()

@@ -14,11 +14,13 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-SYSTEMS = ("baseline", "gate_only", "gate_plus_verifier")
+BASE_SYSTEMS = ("baseline", "gate_only", "gate_plus_verifier")
+SYSTEMS = BASE_SYSTEMS + ("repair_plus_verifier",)
 SYSTEM_LABELS = {
     "baseline": "BASE",
     "gate_only": "GATE",
     "gate_plus_verifier": "VERIFY",
+    "repair_plus_verifier": "REPAIR",
 }
 PACKAGE_SCOPE = "phase08_artifact_package_from_saved_predictions"
 PROBE_MODE = "static_prompt_injection_proxy_no_generation"
@@ -110,6 +112,12 @@ def safe_int(value: Any) -> int | None:
         return None
 
 
+def safe_rate(numerator: int | float, denominator: int | float) -> float | None:
+    if not denominator:
+        return None
+    return float(numerator) / float(denominator)
+
+
 def truncate(value: str, limit: int = 420) -> str:
     normalized = " ".join(str(value).split())
     if len(normalized) <= limit:
@@ -173,6 +181,122 @@ def metric_fieldnames(rows: list[dict[str, Any]]) -> list[str]:
     ]
     keys = set().union(*(row.keys() for row in rows)) if rows else set()
     return [field for field in preferred if field in keys] + sorted(keys.difference(preferred))
+
+
+def coverage_safety_fieldnames() -> list[str]:
+    return [
+        "system",
+        "dataset",
+        "model_size",
+        "run_id",
+        "artifact_mode",
+        "example_count",
+        "answer_coverage",
+        "asqa_short_answer_coverage",
+        "exact_answer_accuracy",
+        "unsupported_non_abstained_rate",
+        "abstention_rate",
+        "correct_citation_rate",
+        "phase08_package_scope",
+        "formal_full_eval_pass",
+        "scope_note",
+    ]
+
+
+def build_coverage_safety_rows(metric_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    fields = coverage_safety_fieldnames()
+    return [{field: row.get(field) for field in fields} for row in metric_rows]
+
+
+def repair_salvage_fieldnames() -> list[str]:
+    return [
+        "system",
+        "dataset",
+        "model_size",
+        "run_id",
+        "source_file",
+        "example_count",
+        "initial_verified_count",
+        "repair_attempted_count",
+        "accepted_after_repair_count",
+        "repair_rejected_abstained_count",
+        "abstention_count",
+        "unsupported_accepted_after_repair_count",
+        "repair_attempt_rate",
+        "repair_salvage_rate",
+        "final_abstention_rate",
+        "final_verifier_pass_rate",
+    ]
+
+
+def final_verifier_summary(record: dict[str, Any]) -> dict[str, Any]:
+    verifier = record.get("verifier") or {}
+    return verifier.get("final_summary") or verifier.get("repair_summary") or verifier.get("initial_summary") or {}
+
+
+def build_repair_salvage_rows(repo_root: Path, metric_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    seen: set[tuple[str, str, str]] = set()
+    for metric_row in metric_rows:
+        if metric_row.get("system") != "repair_plus_verifier":
+            continue
+        source_file = str(metric_row.get("source_file") or "")
+        run_id = str(metric_row.get("run_id") or "")
+        dataset = str(metric_row.get("dataset") or "")
+        key = (source_file, run_id, dataset)
+        if not source_file or key in seen:
+            continue
+        seen.add(key)
+        source_path = repo_root / source_file.replace("\\", "/")
+        if not source_path.exists():
+            continue
+        predictions = [
+            record
+            for record in read_jsonl(source_path)
+            if record.get("system") == "repair_plus_verifier"
+            and record.get("run_id") == run_id
+            and record.get("dataset") == dataset
+        ]
+        if not predictions:
+            continue
+        attempted = [record for record in predictions if bool(record.get("metadata", {}).get("repair_attempted"))]
+        accepted = [record for record in predictions if bool(record.get("metadata", {}).get("accepted_after_repair"))]
+        initial_verified = [
+            record for record in predictions if record.get("metadata", {}).get("strategy") == "initial_verified"
+        ]
+        rejected = [
+            record for record in predictions if record.get("metadata", {}).get("strategy") == "repair_rejected_abstained"
+        ]
+        final_passes = [record for record in predictions if bool(final_verifier_summary(record).get("passed"))]
+        unsupported_accepted_repairs = [
+            record
+            for record in accepted
+            if bool(final_verifier_summary(record).get("false_attribution"))
+            or not bool(final_verifier_summary(record).get("passed"))
+        ]
+        count = len(predictions)
+        attempted_count = len(attempted)
+        rows.append(
+            {
+                "system": "repair_plus_verifier",
+                "dataset": dataset,
+                "model_size": metric_row.get("model_size"),
+                "run_id": run_id,
+                "source_file": source_file,
+                "example_count": count,
+                "initial_verified_count": len(initial_verified),
+                "repair_attempted_count": attempted_count,
+                "accepted_after_repair_count": len(accepted),
+                "repair_rejected_abstained_count": len(rejected),
+                "abstention_count": sum(bool(record.get("abstained")) for record in predictions),
+                "unsupported_accepted_after_repair_count": len(unsupported_accepted_repairs),
+                "repair_attempt_rate": safe_rate(attempted_count, count),
+                "repair_salvage_rate": safe_rate(len(accepted), attempted_count),
+                "final_abstention_rate": safe_rate(sum(bool(record.get("abstained")) for record in predictions), count),
+                "final_verifier_pass_rate": safe_rate(len(final_passes), count),
+            }
+        )
+    return rows
 
 
 def candidate_pool(record: dict[str, Any]) -> list[tuple[str, dict[str, Any]]]:
@@ -299,6 +423,10 @@ def example_reason(category: str, verdict: dict[str, Any]) -> str:
     if category == "verifier_catch":
         errors = ", ".join(summary.get("errors") or [])
         return f"Verifier caught a citation-formatted but unsupported answer: {errors}."
+    if category == "repair_success":
+        return "Repair-plus-verifier corrected an initially rejected answer and accepted it after deterministic verification."
+    if category == "repair_abstain":
+        return "Repair-plus-verifier tried one correction and still abstained because the verifier did not accept the evidence."
     return "Distractor probe selected a plausible irrelevant fourth prompt passage."
 
 
@@ -370,6 +498,27 @@ def select_qualitative_examples(
         ("gate_success", gate_successes),
         ("verifier_catch", verifier_catches),
     ):
+        for verdict in group:
+            selected.append(
+                example_payload(
+                    category=category,
+                    verdict=verdict,
+                    prediction=predictions.get((verdict["run_id"], verdict["example_id"])),
+                )
+            )
+
+    repair_successes = []
+    repair_abstains = []
+    for verdict in verdicts:
+        if verdict.get("system") != "repair_plus_verifier":
+            continue
+        prediction = predictions.get((verdict["run_id"], verdict["example_id"]))
+        metadata = (prediction or {}).get("metadata", {})
+        if metadata.get("accepted_after_repair") and not verdict["summary"].get("abstained"):
+            repair_successes.append(verdict)
+        if metadata.get("repair_attempted") and verdict["summary"].get("abstained"):
+            repair_abstains.append(verdict)
+    for category, group in (("repair_success", repair_successes[:2]), ("repair_abstain", repair_abstains[:2])):
         for verdict in group:
             selected.append(
                 example_payload(
@@ -573,6 +722,7 @@ COLORS = {
     "baseline": (88, 115, 184),
     "gate_only": (42, 157, 143),
     "gate_plus_verifier": (204, 102, 83),
+    "repair_plus_verifier": (126, 92, 164),
     "asqa": (116, 150, 193),
     "finance": (232, 173, 77),
     "axis": (50, 50, 50),
@@ -641,6 +791,66 @@ def draw_scatter(path: Path, title: str, rows: list[dict[str, Any]]) -> None:
     canvas.save_png(path)
 
 
+def draw_safety_coverage_frontier(path: Path, rows: list[dict[str, Any]]) -> None:
+    canvas = Canvas()
+    left, bottom, top, right = 95, 440, 70, 880
+    canvas.text(95, 24, "SAFETY VS COVERAGE FRONTIER", scale=3)
+    canvas.text(300, 476, "ANSWER COVERAGE", scale=2)
+    canvas.text(10, 54, "UNSUPPORTED", scale=2)
+    for tick in (0.0, 0.5, 1.0):
+        x = left + int((right - left) * tick)
+        y = bottom - int((bottom - top) * tick)
+        canvas.line(x, top, x, bottom, COLORS["grid"])
+        canvas.line(left, y, right, y, COLORS["grid"])
+    canvas.line(left, top, left, bottom, COLORS["axis"])
+    canvas.line(left, bottom, right, bottom, COLORS["axis"])
+    if not rows:
+        canvas.text(280, 230, "NO DATA", scale=4)
+        canvas.save_png(path)
+        return
+    for row in rows[:16]:
+        x_value = value_from_row(row, "answer_coverage")
+        y_value = value_from_row(row, "unsupported_non_abstained_rate")
+        x = left + int((right - left) * x_value)
+        y = bottom - int((bottom - top) * y_value)
+        color = COLORS.get(row.get("system", ""), (120, 120, 120))
+        canvas.rect(x - 5, y - 5, x + 5, y + 5, color)
+        label = f"{SYSTEM_LABELS.get(row.get('system', ''), 'SYS')}/{row.get('dataset', '')[:3].upper()}"
+        canvas.text(x + 8, y - 7, label, scale=1)
+    canvas.save_png(path)
+
+
+def draw_repair_funnel(path: Path, rows: list[dict[str, Any]]) -> None:
+    canvas = Canvas()
+    canvas.text(95, 24, "REPAIR PLUS VERIFIER FUNNEL", scale=3)
+    totals = {
+        "TOTAL": sum(safe_int(row.get("example_count")) or 0 for row in rows),
+        "INITIAL": sum(safe_int(row.get("initial_verified_count")) or 0 for row in rows),
+        "REPAIR": sum(safe_int(row.get("repair_attempted_count")) or 0 for row in rows),
+        "SAVED": sum(safe_int(row.get("accepted_after_repair_count")) or 0 for row in rows),
+        "ABSTAIN": sum(safe_int(row.get("abstention_count")) or 0 for row in rows),
+    }
+    if not rows or totals["TOTAL"] == 0:
+        canvas.text(270, 230, "NO REPAIR DATA", scale=4)
+        canvas.save_png(path)
+        return
+    left, bottom, top, right = 95, 440, 90, 880
+    canvas.line(left, top, left, bottom, COLORS["axis"])
+    canvas.line(left, bottom, right, bottom, COLORS["axis"])
+    max_count = max(totals.values()) or 1
+    slot = (right - left) // len(totals)
+    for index, (label, count) in enumerate(totals.items()):
+        x0 = left + index * slot + 22
+        x1 = left + (index + 1) * slot - 22
+        height = int((bottom - top) * (count / max_count))
+        y = bottom - height
+        color = COLORS["repair_plus_verifier"] if label in {"INITIAL", "REPAIR", "SAVED"} else (145, 145, 145)
+        canvas.rect(x0, y, x1, bottom - 1, color)
+        canvas.text(x0, y - 22, str(count), scale=2)
+        canvas.text(x0 - 2, bottom + 12, label, scale=2)
+    canvas.save_png(path)
+
+
 def draw_distractor_chart(path: Path, rows: list[dict[str, Any]]) -> None:
     canvas = Canvas()
     left, bottom, top, right = 95, 440, 70, 880
@@ -666,18 +876,27 @@ def draw_distractor_chart(path: Path, rows: list[dict[str, Any]]) -> None:
     canvas.save_png(path)
 
 
-def write_figures(paths: FinalAssetPaths, metric_rows: list[dict[str, Any]], distractor_summary: list[dict[str, Any]]) -> list[str]:
+def write_figures(
+    paths: FinalAssetPaths,
+    metric_rows: list[dict[str, Any]],
+    distractor_summary: list[dict[str, Any]],
+    repair_salvage_rows: list[dict[str, Any]],
+) -> list[str]:
     paths.figures.mkdir(parents=True, exist_ok=True)
     figures = [
         paths.figures / "unsupported_non_abstained.png",
         paths.figures / "abstention_vs_coverage.png",
         paths.figures / "finance_citation_accuracy.png",
         paths.figures / "distractor_sensitivity.png",
+        paths.figures / "safety_vs_coverage_frontier.png",
+        paths.figures / "repair_funnel.png",
     ]
     draw_bar_chart(figures[0], "UNSUPPORTED NON ABSTAINED RATE", metric_rows, "unsupported_non_abstained_rate")
     draw_scatter(figures[1], "ABSTENTION VS COVERAGE", metric_rows)
     draw_bar_chart(figures[2], "FINANCE CITATION ACCURACY", metric_rows, "correct_citation_rate", finance_only=True)
     draw_distractor_chart(figures[3], distractor_summary)
+    draw_safety_coverage_frontier(figures[4], metric_rows)
+    draw_repair_funnel(figures[5], repair_salvage_rows)
     return [str(path) for path in figures]
 
 
@@ -726,6 +945,7 @@ def build_report_notes(
     formal_full_eval_pass: bool,
     scope_note: str,
     generated_distractor_rows: list[dict[str, Any]] | None = None,
+    repair_salvage_rows: list[dict[str, Any]] | None = None,
 ) -> None:
     systems = sorted({row["system"] for row in metric_rows})
     datasets = sorted({row["dataset"] for row in metric_rows})
@@ -764,11 +984,15 @@ def build_report_notes(
             "- `outputs/final/tables/system_comparison.csv`",
             "- `outputs/final/tables/asqa_metrics.csv`",
             "- `outputs/final/tables/finance_metrics.csv`",
+            "- `outputs/final/tables/coverage_safety_summary.csv`",
+            "- `outputs/final/tables/repair_salvage.csv`",
             "- `outputs/final/tables/distractor_probe.csv`",
             "- `outputs/final/tables/distractor_probe_summary.csv`",
             "- `outputs/final/tables/generated_distractor_metrics.csv` when generated distractor runs are available.",
             "- `outputs/final/figures/unsupported_non_abstained.png`",
             "- `outputs/final/figures/abstention_vs_coverage.png`",
+            "- `outputs/final/figures/safety_vs_coverage_frontier.png`",
+            "- `outputs/final/figures/repair_funnel.png`",
             "- `outputs/final/figures/finance_citation_accuracy.png`",
             "- `outputs/final/figures/distractor_sensitivity.png`",
             "- `outputs/final/figures/generated_distractor_robustness.png` when generated distractor runs are available.",
@@ -777,7 +1001,7 @@ def build_report_notes(
             "",
             f"- Curated examples: `{len(example_rows)}`.",
             "- Index: `outputs/final/examples/example_index.csv`.",
-            "- Categories: baseline failures, gate successes, verifier catches, and distractor-probe cases.",
+            "- Categories: baseline failures, gate successes, verifier catches, repair outcomes when available, and distractor-probe cases.",
             "",
             "## Required Limitations",
             "",
@@ -801,6 +1025,7 @@ def build_report_notes(
             f"- Datasets represented in saved metrics: `{', '.join(datasets)}`.",
             f"- Distractor probe rows: `{len(distractor_rows)}`.",
             f"- Generated distractor metric rows: `{len(generated_distractor_rows or [])}`.",
+            f"- Repair salvage rows: `{len(repair_salvage_rows or [])}`.",
         ]
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -838,6 +1063,13 @@ def build_final_assets(repo_root: Path, output_root: Path) -> dict[str, Any]:
     write_csv(paths.tables / "system_comparison.csv", metric_rows, metric_fieldnames(metric_rows))
     write_csv(paths.tables / "asqa_metrics.csv", filter_metric_rows(metric_rows, "asqa"), metric_fieldnames(metric_rows))
     write_csv(paths.tables / "finance_metrics.csv", filter_metric_rows(metric_rows, "finance"), metric_fieldnames(metric_rows))
+    write_csv(
+        paths.tables / "coverage_safety_summary.csv",
+        build_coverage_safety_rows(metric_rows),
+        coverage_safety_fieldnames(),
+    )
+    repair_salvage_rows = build_repair_salvage_rows(repo_root, metric_rows)
+    write_csv(paths.tables / "repair_salvage.csv", repair_salvage_rows, repair_salvage_fieldnames())
     if generated_distractor_rows:
         write_csv(
             paths.tables / "generated_distractor_metrics.csv",
@@ -893,7 +1125,7 @@ def build_final_assets(repo_root: Path, output_root: Path) -> dict[str, Any]:
         ],
     )
 
-    figure_paths = write_figures(paths, metric_rows, distractor_summary)
+    figure_paths = write_figures(paths, metric_rows, distractor_summary, repair_salvage_rows)
     if generated_distractor_rows:
         generated_figure = paths.figures / "generated_distractor_robustness.png"
         draw_generated_distractor_chart(generated_figure, metric_rows, generated_distractor_rows)
@@ -920,6 +1152,7 @@ def build_final_assets(repo_root: Path, output_root: Path) -> dict[str, Any]:
         formal_full_eval_pass=formal_full_eval_pass,
         scope_note=scope_note,
         generated_distractor_rows=generated_distractor_rows,
+        repair_salvage_rows=repair_salvage_rows,
     )
 
     manifest = {
@@ -932,6 +1165,8 @@ def build_final_assets(repo_root: Path, output_root: Path) -> dict[str, Any]:
             "system_comparison": "outputs/final/tables/system_comparison.csv",
             "asqa_metrics": "outputs/final/tables/asqa_metrics.csv",
             "finance_metrics": "outputs/final/tables/finance_metrics.csv",
+            "coverage_safety_summary": "outputs/final/tables/coverage_safety_summary.csv",
+            "repair_salvage": "outputs/final/tables/repair_salvage.csv",
             "distractor_probe": "outputs/final/tables/distractor_probe.csv",
             "distractor_probe_summary": "outputs/final/tables/distractor_probe_summary.csv",
             "generated_distractor_metrics": "outputs/final/tables/generated_distractor_metrics.csv" if generated_distractor_rows else None,
@@ -954,7 +1189,9 @@ def build_final_assets(repo_root: Path, output_root: Path) -> dict[str, Any]:
             "all_required_figures_exist": True,
             "curated_example_count_at_least_8": len(example_rows) >= 8,
             "report_notes_include_required_limitations": True,
-            "all_three_systems_represented": sorted({row["system"] for row in metric_rows}) == sorted(SYSTEMS),
+            "all_three_systems_represented": set(BASE_SYSTEMS).issubset({row["system"] for row in metric_rows}),
+            "all_base_systems_represented": set(BASE_SYSTEMS).issubset({row["system"] for row in metric_rows}),
+            "repair_plus_verifier_represented": "repair_plus_verifier" in {row["system"] for row in metric_rows},
             "same_fixed_ids_full_eval": formal_full_eval_pass,
             "same_fixed_ids_note": "Full 3B fixed IDs are complete." if formal_full_eval_pass else "Saved prediction artifacts do not cover the full fixed eval IDs for baseline and gate_only 3B.",
             "figures_generated_from_saved_tables": True,

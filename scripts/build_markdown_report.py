@@ -74,6 +74,22 @@ def distractor_rows(rows: list[dict[str, str]]) -> list[list[str]]:
     ]
 
 
+def repair_rows(rows: list[dict[str, str]]) -> list[list[str]]:
+    return [
+        [
+            row["dataset"],
+            row["model_size"],
+            row["example_count"],
+            row["repair_attempted_count"],
+            row["accepted_after_repair_count"],
+            row["repair_rejected_abstained_count"],
+            fmt_percent(row.get("repair_salvage_rate")),
+            row["unsupported_accepted_after_repair_count"],
+        ]
+        for row in rows
+    ]
+
+
 def example_rows(rows: list[dict[str, str]]) -> list[list[str]]:
     return [
         [
@@ -104,6 +120,7 @@ def write_report() -> dict[str, Any]:
     manifest = read_json(FINAL_DIR / "final_manifest.json")
     comparison = read_csv(FINAL_DIR / "tables" / "system_comparison.csv")
     generated_distractor = optional_csv(FINAL_DIR / "tables" / "generated_distractor_metrics.csv")
+    repair_salvage = optional_csv(FINAL_DIR / "tables" / "repair_salvage.csv")
     distractor = read_csv(FINAL_DIR / "tables" / "distractor_probe_summary.csv")
     examples = read_csv(FINAL_DIR / "examples" / "example_index.csv")
     report_notes = (FINAL_DIR / "report_notes.md").read_text(encoding="utf-8")
@@ -126,9 +143,9 @@ def write_report() -> dict[str, Any]:
         "## Abstract",
         "",
         "This project implements a local retrieval-augmented generation prototype that asks whether an "
-        "inference-time attention gate plus a deterministic verifier can reduce unsupported cited answers "
+        "inference-time attention gate, deterministic verifier, and one-step evidence-only repair loop can reduce unsupported cited answers "
         "without retraining the language model. The system compares a baseline RAG generator, a gate-only "
-        "variant, and a gate-plus-verifier variant. ASQA is used as a bounded local-corpus citation task, "
+        "variant, a gate-plus-verifier variant, and a repair-plus-verifier variant. ASQA is used as a bounded local-corpus citation task, "
         "while a synthetic finance dataset provides exact-answer stress tests for numeric and period-specific claims.",
         "",
         "The current artifact bundle demonstrates working retrieval, deterministic generation, "
@@ -146,6 +163,7 @@ def write_report() -> dict[str, Any]:
         "- `baseline`: deterministic RAG generation with required sentence-level citations.",
         "- `gate_only`: baseline plus token-level passage-directed self-attention tracing and abstention gate.",
         "- `gate_plus_verifier`: gate outputs projected through the deterministic verifier; unsupported outputs are rejected.",
+        "- `repair_plus_verifier`: generate, verify, attempt one evidence-only repair when needed, then accept only if the verifier passes.",
         "",
         "## Locked Gate Configuration",
         "",
@@ -184,7 +202,7 @@ def write_report() -> dict[str, Any]:
             "",
             "## Meaningfulness",
             "",
-            "The most meaningful result is verifier-driven citation safety. The verifier reduces unsupported cited outputs by rejecting answers whose citation format looks valid but whose cited content fails deterministic support checks. This is stronger than a formatting-only improvement, because false attribution is measured after retrieval and generation.",
+            "The most meaningful result is verifier-bounded citation safety. The verifier rejects answers whose citation format looks valid but whose cited content fails deterministic support checks. The repair-plus-verifier path then asks a stronger question: can the system recover some answer coverage without relaxing the final safety boundary?",
             "",
             "The project does not show a broad answer-quality breakthrough. Finance exact-answer accuracy remains limited, and ASQA support is evaluated with a deterministic proxy rather than a human factuality audit. The right claim is narrow but useful: the system makes unsupported cited answers more auditable and easier to suppress.",
             "",
@@ -211,6 +229,20 @@ def write_report() -> dict[str, Any]:
             "finance_citation_accuracy.png",
             "Finance Citation Accuracy",
             "Finance checks require exact company, metric, period, numeric value, and expected cited passage ID.",
+        )
+    )
+    lines.extend(
+        figure_block(
+            "safety_vs_coverage_frontier.png",
+            "Safety vs Coverage Frontier",
+            "Each point plots answer coverage against unsupported non-abstained rate. The intended best region is high coverage with low unsupported output.",
+        )
+    )
+    lines.extend(
+        figure_block(
+            "repair_funnel.png",
+            "Repair Funnel",
+            "Counts how many repair-plus-verifier examples passed initially, needed repair, were salvaged, or still abstained.",
         )
     )
     lines.extend(
@@ -242,6 +274,24 @@ def write_report() -> dict[str, Any]:
                     "Abstention",
                     "Correct Citation",
                     "Artifact Mode",
+                ],
+            )
+        )
+        lines.extend([""])
+    if repair_salvage:
+        lines.extend(["## Repair Salvage", ""])
+        lines.extend(
+            md_table(
+                repair_rows(repair_salvage),
+                [
+                    "Dataset",
+                    "Model",
+                    "N",
+                    "Repair Attempts",
+                    "Accepted Repairs",
+                    "Repair Abstains",
+                    "Repair Salvage Rate",
+                    "Unsupported Accepted Repairs",
                 ],
             )
         )
@@ -320,6 +370,8 @@ def write_report() -> dict[str, Any]:
             "",
             "- `outputs/final/final_manifest.json`",
             "- `outputs/final/tables/system_comparison.csv`",
+            "- `outputs/final/tables/coverage_safety_summary.csv`",
+            "- `outputs/final/tables/repair_salvage.csv`",
             "- `outputs/final/tables/distractor_probe.csv`",
             "- `outputs/final/tables/generated_distractor_metrics.csv`",
             "- `outputs/final/figures/`",
@@ -367,6 +419,8 @@ def write_report() -> dict[str, Any]:
         "- `outputs/final/figures/unsupported_non_abstained.png`",
         "- `outputs/final/figures/abstention_vs_coverage.png`",
         "- `outputs/final/figures/finance_citation_accuracy.png`",
+        "- `outputs/final/figures/safety_vs_coverage_frontier.png`",
+        "- `outputs/final/figures/repair_funnel.png`",
         "- `outputs/final/figures/distractor_sensitivity.png`",
         "- `outputs/final/figures/generated_distractor_robustness.png`" if generated_distractor else "",
         "",
@@ -375,6 +429,8 @@ def write_report() -> dict[str, Any]:
         "- `outputs/final/tables/system_comparison.csv`",
         "- `outputs/final/tables/asqa_metrics.csv`",
         "- `outputs/final/tables/finance_metrics.csv`",
+        "- `outputs/final/tables/coverage_safety_summary.csv`",
+        "- `outputs/final/tables/repair_salvage.csv`",
         "- `outputs/final/tables/distractor_probe.csv`",
         "- `outputs/final/tables/distractor_probe_summary.csv`",
         "- `outputs/final/tables/generated_distractor_metrics.csv`" if generated_distractor else "",

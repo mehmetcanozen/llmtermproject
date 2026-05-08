@@ -5,3 +5,5 @@ gate_only,asqa,static_prompt_injection_proxy_no_generation,40,0.800000,0.925000,
 gate_only,finance,static_prompt_injection_proxy_no_generation,20,1.000000,0.050000,0.000000,false
 gate_plus_verifier,asqa,static_prompt_injection_proxy_no_generation,40,0.800000,0.925000,0.050000,false
 gate_plus_verifier,finance,static_prompt_injection_proxy_no_generation,20,1.000000,0.050000,0.000000,false
+repair_plus_verifier,asqa,static_prompt_injection_proxy_no_generation,40,0.800000,0.925000,0.050000,false
+repair_plus_verifier,finance,static_prompt_injection_proxy_no_generation,20,1.000000,0.050000,0.000000,false

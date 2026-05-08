@@ -89,6 +89,8 @@ outputs/*
 outputs/test/
 artifacts/tmp/
 artifacts/cache/
+docs/REPAIR_PLUS_VERIFIER_RUNBOOK.md
+docs/submission/
 
 # Do not vendor downloaded third-party reference repositories.
 external/ALCE_reference/

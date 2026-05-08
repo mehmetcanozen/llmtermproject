@@ -1,0 +1,99 @@
+# Copy this file to a local machine-specific config, for example:
+#   configs/local.yaml
+#
+# Then replace the paths below with locations on your machine. The repository
+# does not include model weights, ASQA parquet files, dense embeddings, or full
+# generation runs because those are large/generated artifacts.
+
+project:
+  name: deterministic-citation-enforcement-rag
+  abstention_string: INSUFFICIENT_SUPPORT
+  seed: 20260416
+
+paths:
+  repo_root: .
+  models_root: C:\AI\models
+  data_root: C:\AI\data
+  qwen_3b: C:\AI\models\QwenQwen2.5-3B-Instruct
+  qwen_7b: C:\AI\models\QwenQwen2.5-7B-Instruct
+  embedding_model: C:\AI\models\BAAIbge-small-en-v1.5
+  asqa_train_parquet: C:\AI\data\asqa\data\train-00000-of-00001-87b7d64f7913b544.parquet
+  asqa_dev_parquet: C:\AI\data\asqa\data\dev-00000-of-00001-58a9a40c6e69f07b.parquet
+  alce_reference: external/ALCE_reference
+
+model:
+  bringup_model_id: Qwen/Qwen2.5-3B-Instruct
+  main_model_id: Qwen/Qwen2.5-7B-Instruct
+  local_bringup_path: C:\AI\models\QwenQwen2.5-3B-Instruct
+  local_main_path: C:\AI\models\QwenQwen2.5-7B-Instruct
+  quantization:
+    load_in_4bit: true
+    bnb_4bit_quant_type: nf4
+    bnb_4bit_compute_dtype: bfloat16
+  attention:
+    implementation: eager
+    output_attentions: true
+
+retrieval:
+  embedding_model_id: BAAI/bge-small-en-v1.5
+  local_embedding_path: C:\AI\models\BAAIbge-small-en-v1.5
+  query_instruction: "Represent this sentence for searching relevant passages: "
+  dense_top_k: 5
+  bm25_top_k: 5
+  prompt_top_k: 3
+  dense_weight: 0.60
+  bm25_weight: 0.40
+  chunk_tokens_min: 180
+  chunk_tokens_max: 220
+  chunk_overlap_tokens: 40
+
+prompt:
+  passage_count: 3
+  max_input_tokens_target:
+    min: 900
+    max: 1200
+  max_new_tokens: 160
+  temperature: 0.0
+  do_sample: false
+  citation_labels:
+    - P1
+    - P2
+    - P3
+
+gate:
+  enabled: true
+  tail_layers: 4
+  rolling_window: 4
+  threshold: 0.10
+  consecutive_failures: 3
+  skip_initial_generated_tokens: 8
+  ignored_token_classes:
+    - punctuation_only
+    - citation_marker
+
+verifier:
+  enabled: true
+  citation_pattern: "\\[P[0-9]+\\]"
+  fixed_abstention: INSUFFICIENT_SUPPORT
+  finance_exact_checks:
+    - company_name
+    - period
+    - metric_type
+    - numeric_value
+    - cited_passage_id
+  asqa_support_proxy_checks:
+    - citation_marker_present
+    - cited_passage_exists
+    - explicit_numbers_years_or_quotes_appear_in_cited_passage
+
+evaluation:
+  systems:
+    - baseline
+    - gate_only
+    - gate_plus_verifier
+    - repair_plus_verifier
+  calibration_seed: 20260416
+  calibration_examples: 100
+  dev_eval_examples: 200
+  bootstrap_samples: 1000
+  confidence_level: 0.95

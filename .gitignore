@@ -40,6 +40,12 @@ desktop.ini
 *.log
 *.tmp
 *.temp
+*.aux
+*.out
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
 tmp/
 temp/
 
@@ -80,17 +86,28 @@ data/asqa/downloads/
 !data/asqa/manifests/
 !data/asqa/manifests/**
 
-# Generated outputs. Keep only the final lightweight report package.
+# Generated outputs. Keep final lightweight report/evaluation artifacts needed
+# for fresh-clone verification, but not bulky embeddings or full run folders.
 outputs/*
 !outputs/final/
 !outputs/final/**
+!outputs/evaluation/
+!outputs/evaluation/*.json
+!outputs/evaluation/*.csv
+!outputs/distractor_evaluation/
+!outputs/distractor_evaluation/*.json
+!outputs/distractor_evaluation/*.csv
+!outputs/retrieval/
+outputs/retrieval/*
+!outputs/retrieval/asqa_candidates.jsonl
+!outputs/retrieval/finance_candidates.jsonl
+!outputs/retrieval/retrieval_index_manifest.json
 
 # Scratch output from tests and local experiments
 outputs/test/
 artifacts/tmp/
 artifacts/cache/
 docs/REPAIR_PLUS_VERIFIER_RUNBOOK.md
-docs/submission/
 
 # Do not vendor downloaded third-party reference repositories.
 external/ALCE_reference/

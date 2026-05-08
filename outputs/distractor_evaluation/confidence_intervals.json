@@ -1,0 +1,698 @@
+{
+  "comparisons": [
+    {
+      "dataset": "asqa",
+      "left_model_size": "3b",
+      "left_system": "baseline",
+      "metric_intervals": [
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "answer_coverage",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "unsupported_non_abstained_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "abstention_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "asqa_short_answer_coverage",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        }
+      ],
+      "metrics": [
+        "answer_coverage",
+        "unsupported_non_abstained_rate",
+        "abstention_rate",
+        "asqa_short_answer_coverage"
+      ],
+      "name": "baseline_3b_vs_gate_only_3b_asqa_overlap",
+      "paired_example_ids": [],
+      "right_model_size": "3b",
+      "right_system": "gate_only"
+    },
+    {
+      "dataset": "asqa",
+      "left_model_size": "3b",
+      "left_system": "baseline",
+      "metric_intervals": [
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "answer_coverage",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "unsupported_non_abstained_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "abstention_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "asqa_short_answer_coverage",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        }
+      ],
+      "metrics": [
+        "answer_coverage",
+        "unsupported_non_abstained_rate",
+        "abstention_rate",
+        "asqa_short_answer_coverage"
+      ],
+      "name": "baseline_3b_vs_gate_plus_verifier_3b_asqa_overlap",
+      "paired_example_ids": [],
+      "right_model_size": "3b",
+      "right_system": "gate_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "left_model_size": "3b",
+      "left_system": "gate_only",
+      "metric_intervals": [
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "answer_coverage",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "unsupported_non_abstained_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "abstention_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "asqa_short_answer_coverage",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        }
+      ],
+      "metrics": [
+        "answer_coverage",
+        "unsupported_non_abstained_rate",
+        "abstention_rate",
+        "asqa_short_answer_coverage"
+      ],
+      "name": "gate_only_3b_vs_gate_plus_verifier_3b_asqa_overlap",
+      "paired_example_ids": [],
+      "right_model_size": "3b",
+      "right_system": "gate_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "left_model_size": "3b",
+      "left_system": "baseline",
+      "metric_intervals": [
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "answer_coverage",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "unsupported_non_abstained_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "abstention_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "asqa_short_answer_coverage",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        }
+      ],
+      "metrics": [
+        "answer_coverage",
+        "unsupported_non_abstained_rate",
+        "abstention_rate",
+        "asqa_short_answer_coverage"
+      ],
+      "name": "baseline_3b_vs_repair_plus_verifier_3b_asqa_overlap",
+      "paired_example_ids": [],
+      "right_model_size": "3b",
+      "right_system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "left_model_size": "3b",
+      "left_system": "gate_plus_verifier",
+      "metric_intervals": [
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "answer_coverage",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "unsupported_non_abstained_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "abstention_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "asqa_short_answer_coverage",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        }
+      ],
+      "metrics": [
+        "answer_coverage",
+        "unsupported_non_abstained_rate",
+        "abstention_rate",
+        "asqa_short_answer_coverage"
+      ],
+      "name": "gate_plus_verifier_3b_vs_repair_plus_verifier_3b_asqa_overlap",
+      "paired_example_ids": [],
+      "right_model_size": "3b",
+      "right_system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "left_model_size": "3b",
+      "left_system": "baseline",
+      "metric_intervals": [
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "exact_answer_accuracy",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "unsupported_non_abstained_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "false_attribution_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "abstention_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        }
+      ],
+      "metrics": [
+        "exact_answer_accuracy",
+        "unsupported_non_abstained_rate",
+        "false_attribution_rate",
+        "abstention_rate"
+      ],
+      "name": "baseline_3b_vs_gate_only_3b_finance_overlap",
+      "paired_example_ids": [],
+      "right_model_size": "3b",
+      "right_system": "gate_only"
+    },
+    {
+      "dataset": "finance",
+      "left_model_size": "3b",
+      "left_system": "baseline",
+      "metric_intervals": [
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "exact_answer_accuracy",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "unsupported_non_abstained_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "false_attribution_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "abstention_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        }
+      ],
+      "metrics": [
+        "exact_answer_accuracy",
+        "unsupported_non_abstained_rate",
+        "false_attribution_rate",
+        "abstention_rate"
+      ],
+      "name": "baseline_3b_vs_gate_plus_verifier_3b_finance_overlap",
+      "paired_example_ids": [],
+      "right_model_size": "3b",
+      "right_system": "gate_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "left_model_size": "3b",
+      "left_system": "gate_only",
+      "metric_intervals": [
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "exact_answer_accuracy",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "unsupported_non_abstained_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "false_attribution_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "abstention_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        }
+      ],
+      "metrics": [
+        "exact_answer_accuracy",
+        "unsupported_non_abstained_rate",
+        "false_attribution_rate",
+        "abstention_rate"
+      ],
+      "name": "gate_only_3b_vs_gate_plus_verifier_3b_finance_overlap",
+      "paired_example_ids": [],
+      "right_model_size": "3b",
+      "right_system": "gate_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "left_model_size": "3b",
+      "left_system": "baseline",
+      "metric_intervals": [
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "exact_answer_accuracy",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "unsupported_non_abstained_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "false_attribution_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "abstention_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        }
+      ],
+      "metrics": [
+        "exact_answer_accuracy",
+        "unsupported_non_abstained_rate",
+        "false_attribution_rate",
+        "abstention_rate"
+      ],
+      "name": "baseline_3b_vs_repair_plus_verifier_3b_finance_overlap",
+      "paired_example_ids": [],
+      "right_model_size": "3b",
+      "right_system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "left_model_size": "3b",
+      "left_system": "gate_plus_verifier",
+      "metric_intervals": [
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "exact_answer_accuracy",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "unsupported_non_abstained_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "false_attribution_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        },
+        {
+          "ci_high": null,
+          "ci_low": null,
+          "delta": null,
+          "metric": "abstention_rate",
+          "n_pairs": 0,
+          "wilcoxon": {
+            "n_pairs": 0,
+            "note": "no_pairs",
+            "p_value": null,
+            "statistic": null
+          }
+        }
+      ],
+      "metrics": [
+        "exact_answer_accuracy",
+        "unsupported_non_abstained_rate",
+        "false_attribution_rate",
+        "abstention_rate"
+      ],
+      "name": "gate_plus_verifier_3b_vs_repair_plus_verifier_3b_finance_overlap",
+      "paired_example_ids": [],
+      "right_model_size": "3b",
+      "right_system": "repair_plus_verifier"
+    }
+  ],
+  "confidence_level": 0.95,
+  "method": "paired bootstrap percentile interval",
+  "samples": 1000,
+  "seed": 20260416
+}

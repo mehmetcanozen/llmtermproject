@@ -1,0 +1,12 @@
+# Core dependencies for artifact-level verification, tests, saved metrics,
+# final tables, and report assets. Full local LLM generation additionally
+# needs requirements-full.txt.
+
+jsonschema
+numpy
+pandas
+pyarrow
+pytest
+PyYAML
+rank-bm25
+scipy

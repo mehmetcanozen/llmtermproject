@@ -1,0 +1,35 @@
+{
+  "batch_size": 64,
+  "chunking": {
+    "chunk_overlap_tokens": 40,
+    "chunk_tokens_max": 220
+  },
+  "device": "cpu",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "embedding_model_path": "C:\\AI\\models\\BAAIbge-small-en-v1.5",
+  "phase": "03_Retrieval_System",
+  "results": [
+    {
+      "chunk_path": "outputs\\retrieval\\asqa_chunks.jsonl",
+      "chunks": 10382,
+      "dataset": "asqa",
+      "embedding_path": "outputs\\retrieval\\asqa_dense_embeddings.npz",
+      "embedding_shape": [
+        10382,
+        384
+      ],
+      "source_records": 10367
+    },
+    {
+      "chunk_path": "outputs\\retrieval\\finance_chunks.jsonl",
+      "chunks": 84,
+      "dataset": "finance",
+      "embedding_path": "outputs\\retrieval\\finance_dense_embeddings.npz",
+      "embedding_shape": [
+        84,
+        384
+      ],
+      "source_records": 84
+    }
+  ]
+}

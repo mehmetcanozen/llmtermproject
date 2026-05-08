@@ -1,0 +1,31 @@
+{
+  "bootstrap_samples": 1000,
+  "confidence_intervals": "C:\\SoftwareProjects\\LLMTermProject\\outputs\\evaluation\\confidence_intervals.json",
+  "confidence_level": 0.95,
+  "created_at": "2026-05-08T17:24:00.149339+00:00",
+  "datasets_present": [
+    "asqa",
+    "finance"
+  ],
+  "eval_split_ids": "C:\\SoftwareProjects\\LLMTermProject\\outputs\\evaluation\\eval_split_ids.json",
+  "formal_full_eval_pass": true,
+  "full_3b_asqa": true,
+  "full_3b_finance": true,
+  "metric_tables": "C:\\SoftwareProjects\\LLMTermProject\\outputs\\evaluation\\metric_tables.csv",
+  "phase": "07_Calibration_and_Evaluation",
+  "repair_full_3b_asqa": true,
+  "repair_full_3b_finance": true,
+  "repair_full_7b_asqa": true,
+  "repair_full_7b_finance": true,
+  "repair_plus_full_eval_pass": true,
+  "repair_plus_scope_warning": null,
+  "row_count": 10,
+  "scope_warning": null,
+  "systems_present": [
+    "baseline",
+    "gate_only",
+    "gate_plus_verifier",
+    "repair_plus_verifier"
+  ],
+  "verifier_artifact": "C:\\SoftwareProjects\\LLMTermProject\\outputs\\evaluation\\verifier_verdicts.json"
+}

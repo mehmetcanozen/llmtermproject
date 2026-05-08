@@ -1,0 +1,13 @@
+# Additional dependencies for full local retrieval/generation runs.
+# Install the PyTorch build appropriate for your CUDA/driver first if needed.
+
+-r requirements.txt
+
+accelerate
+bitsandbytes
+datasets
+evaluate
+sentence-transformers
+torch
+tqdm
+transformers

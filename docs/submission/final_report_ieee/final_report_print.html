@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Verifier-Bounded Repair for Safer RAG</title>
+  <style>
+    @page { size: letter; margin: 0.58in; }
+    body {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 9.7pt;
+      line-height: 1.18;
+      color: #111;
+      margin: 0;
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 0.55rem;
+    }
+    h1 {
+      font-size: 18pt;
+      margin: 0 0 0.3rem 0;
+      font-weight: 700;
+    }
+    .author {
+      font-size: 10pt;
+      line-height: 1.25;
+    }
+    .columns {
+      column-count: 2;
+      column-gap: 0.25in;
+    }
+    h2 {
+      font-size: 10.3pt;
+      text-transform: uppercase;
+      margin: 0.55rem 0 0.25rem 0;
+    }
+    p {
+      margin: 0 0 0.35rem 0;
+      text-align: justify;
+    }
+    .abstract {
+      font-size: 9.4pt;
+      margin: 0.3rem 0 0.5rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.2pt;
+      margin: 0.25rem 0 0.45rem 0;
+      break-inside: avoid;
+    }
+    th, td {
+      border-top: 0.5px solid #333;
+      padding: 2px 3px;
+      text-align: right;
+      vertical-align: top;
+    }
+    th:first-child, td:first-child,
+    th:nth-child(2), td:nth-child(2) {
+      text-align: left;
+    }
+    tr:last-child td {
+      border-bottom: 0.5px solid #333;
+    }
+    figure {
+      margin: 0.35rem 0 0.45rem 0;
+      break-inside: avoid;
+    }
+    figure.wide-figure {
+      column-span: all;
+      margin: 0.45rem 0 0.55rem 0;
+    }
+    img {
+      width: 100%;
+      max-height: 1.75in;
+      object-fit: contain;
+    }
+    figure.wide-figure img {
+      max-height: 2.55in;
+    }
+    figcaption {
+      font-size: 7.5pt;
+      text-align: justify;
+      margin-top: 0.1rem;
+    }
+    ul {
+      margin: 0.15rem 0 0.35rem 1rem;
+      padding: 0;
+    }
+    li { margin-bottom: 0.12rem; }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 8.2pt;
+    }
+    .note {
+      font-size: 8.6pt;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="title">
+    <h1>Verifier-Bounded Repair for Safer Retrieval-Augmented Generation</h1>
+    <div class="author">
+      Mehmet Can Ozen, Student ID: 20210808020<br>
+      Large Language Models Course Project<br>
+      GitHub: https://github.com/mehmetcanozen/llmtermproject
+    </div>
+  </div>
+
+  <div class="columns">
+    <h2>Abstract</h2>
+    <p class="abstract"><b>Abstract:</b> Retrieval-augmented generation systems can produce answers with citations that appear authoritative even when the cited passage does not support the claim. This project builds a local citation-grounded RAG pipeline and evaluates whether deterministic verification plus one-step evidence-only repair can improve useful answer coverage without accepting unsupported citations. On a fixed split of 200 ASQA examples and 100 synthetic finance questions, the best 3B repair-plus-verifier system keeps unsupported non-abstained answers at 0.0%, improves finance exact-answer accuracy from 62.0% to 80.0%, and improves ASQA short-answer coverage from 26.1% under verifier projection to 33.5%. A generated distractor stress test also keeps unsupported accepted answers at 0.0%.</p>
+
+    <h2>Problem and Motivation</h2>
+    <p>RAG is commonly used to make LLM answers auditable by attaching source citations. A dangerous failure mode is citation hallucination: the model gives a fluent answer and appends a citation marker even though the cited passage does not support the claim. The original project proposal targeted deterministic citation enforcement through inference-time grounding signals. The final implementation keeps that goal but shifts toward a fully reproducible local pipeline: deterministic generation, hybrid retrieval, attention-gate instrumentation, a deterministic verifier, and an evidence-only repair loop.</p>
+
+    <h2>Data and Task</h2>
+    <p>The project uses two complementary evaluation sources. ASQA is used as a bounded local-corpus citation task with 200 fixed examples. A synthetic finance dataset contains 100 fixed questions over fictional disclosures and supports exact deterministic checks for company, fiscal period, metric type, numeric value, and cited passage ID. The project also includes a generated distractor stress test in which each prompt receives one additional plausible but irrelevant fourth passage.</p>
+
+    <h2>LLM Methodology</h2>
+    <p>The implementation is a local RAG pipeline. Retrieval combines dense BGE embeddings with BM25 ranking. The generator uses deterministic Qwen2.5-Instruct models. Every factual sentence must end with citation markers such as <code>[P1]</code>. Four systems are compared: baseline RAG, gate-only attention tracing, gate-plus-verifier projection, and repair-plus-verifier. The repair system generates an answer, verifies it, attempts one evidence-only repair when needed, verifies again, and otherwise outputs <code>INSUFFICIENT_SUPPORT</code>.</p>
+
+    <h2>Experiments and Results</h2>
+    <table>
+      <thead>
+        <tr><th>System</th><th>Data</th><th>N</th><th>Cov.</th><th>UNS</th><th>Abs.</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Baseline 3B</td><td>ASQA</td><td>200</td><td>49.5</td><td>3.5</td><td>47.0</td></tr>
+        <tr><td>Gate 3B</td><td>ASQA</td><td>200</td><td>54.5</td><td>2.5</td><td>43.0</td></tr>
+        <tr><td>Gate+Ver. 3B</td><td>ASQA</td><td>200</td><td>54.5</td><td>0.0</td><td>45.5</td></tr>
+        <tr><td>Repair+Ver. 3B</td><td>ASQA</td><td>200</td><td>53.0</td><td>0.0</td><td>47.0</td></tr>
+        <tr><td>Repair+Ver. 7B</td><td>ASQA</td><td>200</td><td>42.5</td><td>0.0</td><td>57.5</td></tr>
+        <tr><td>Baseline 3B</td><td>Fin.</td><td>100</td><td>47.0</td><td>1.0</td><td>52.0</td></tr>
+        <tr><td>Gate+Ver. 3B</td><td>Fin.</td><td>100</td><td>47.0</td><td>0.0</td><td>53.0</td></tr>
+        <tr><td>Repair+Ver. 3B</td><td>Fin.</td><td>100</td><td>65.0</td><td>0.0</td><td>35.0</td></tr>
+        <tr><td>Repair+Ver. 7B</td><td>Fin.</td><td>100</td><td>0.0</td><td>0.0</td><td>100.0</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Cov. = answer coverage; UNS = unsupported non-abstained; Abs. = abstention. Values are percentages.</p>
+
+    <figure class="wide-figure">
+      <img src="assets/safety_vs_coverage_frontier.png" alt="Safety versus coverage frontier">
+      <figcaption>Fixed-split safety and coverage. Green repair-plus-verifier rows keep unsupported non-abstained output at 0.0% while improving the strongest utility metrics, especially finance answer coverage.</figcaption>
+    </figure>
+
+    <p>The best system is repair-plus-verifier 3B. Compared with gate-plus-verifier, finance exact accuracy improves from 62.0% to 80.0%, finance answer coverage improves from 47.0% to 65.0%, and abstention decreases from 53.0% to 35.0%. On ASQA, answer coverage remains close to verifier projection, while short-answer coverage improves from 26.1% to 33.5%.</p>
+
+    <table>
+      <thead>
+        <tr><th>Data</th><th>Model</th><th>Attempts</th><th>Saved</th><th>Salvage</th><th>UAR</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ASQA</td><td>3B</td><td>24</td><td>11</td><td>45.8</td><td>0</td></tr>
+        <tr><td>ASQA</td><td>7B</td><td>49</td><td>11</td><td>22.4</td><td>0</td></tr>
+        <tr><td>Finance</td><td>3B</td><td>42</td><td>41</td><td>97.6</td><td>0</td></tr>
+        <tr><td>Finance</td><td>7B</td><td>59</td><td>44</td><td>74.6</td><td>0</td></tr>
+      </tbody>
+    </table>
+    <p class="note">UAR = unsupported accepted repairs. No accepted repair was unsupported.</p>
+
+    <figure class="wide-figure">
+      <img src="assets/repair_funnel.png" alt="Repair funnel">
+      <figcaption>Repair-plus-verifier decision funnel from saved predictions. Repair is useful only when the verifier accepts the corrected answer; unsupported accepted repairs remained zero.</figcaption>
+    </figure>
+
+    <p>The generated distractor stress test adds a fourth irrelevant passage. Repair-plus-verifier 3B remains robust: ASQA obtains 55.0% answer coverage with 0.0% unsupported non-abstained answers, and finance obtains 85.0% exact accuracy with 0.0% unsupported non-abstained answers. This is additional robustness evidence, not a replacement for the fixed split.</p>
+
+    <h2>Discussion and Limitations</h2>
+    <p>The strongest conclusion is narrow but useful. Verifier-bounded repair improves answer usefulness while preserving citation safety in this local setup. However, the ASQA verifier is a deterministic proxy rather than a human factuality audit. It checks citation structure and explicit anchors, but it does not prove complete semantic faithfulness. The finance dataset is synthetic, so it is a controlled stress test rather than real financial evidence. The 7B repair model was much more conservative than 3B, especially on finance, where it abstained on all fixed examples.</p>
+
+    <h2>Conclusion</h2>
+    <p>This project demonstrates a practical pattern for safer local RAG. A deterministic verifier can turn unsupported cited answers into explicit abstentions, and a one-step evidence-only repair loop can recover some supported answers without weakening that safety boundary. The best 3B repair-plus-verifier system achieves 0.0% unsupported accepted answers on the fixed split, improves finance exact accuracy by 18 percentage points, and remains safe under a generated distractor stress test.</p>
+
+    <h2>References</h2>
+    <ul>
+      <li>Lewis et al., Retrieval-Augmented Generation, NeurIPS 2020.</li>
+      <li>Stelmakh et al., ASQA, EMNLP 2022.</li>
+      <li>Gao et al., Enabling LLMs to Generate Text with Citations, EMNLP 2023.</li>
+      <li>Jain and Wallace, Attention is not Explanation, NAACL 2019.</li>
+      <li>Wiegreffe and Pinter, Attention is not not Explanation, EMNLP-IJCNLP 2019.</li>
+      <li>Qwen Team, Qwen2.5 model cards and technical reports, 2024.</li>
+    </ul>
+  </div>
+</body>
+</html>

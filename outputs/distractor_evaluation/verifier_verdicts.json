@@ -1,0 +1,3387 @@
+{
+  "summary": {
+    "abstained": 21,
+    "created_at": "2026-05-07T23:59:20.719102+00:00",
+    "failed": 0,
+    "false_attribution": 0,
+    "passed": 60,
+    "source_counts": {
+      "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl": 40,
+      "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl": 20
+    },
+    "verdict_count": 60
+  },
+  "verdicts": [
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "How many state parks are there in virginia in 1936?",
+            "short_answers": [
+              "six"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "How many state parks are there in virginia in 2016?",
+            "short_answers": [
+              "38"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "How many state parks were there when the state park system formed in Virginia?",
+            "short_answers": [
+              "6"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "How many state parks were there in Virginia as of 2016?",
+            "short_answers": [
+              "38"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 4
+      },
+      "example_id": "asqa_dev_00004",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "43"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007743_0ba347bd7f4e",
+            "asqa_passage_007741_966869c9ccdc",
+            "asqa_passage_008802_c90c8ebc5b0b",
+            "asqa_passage_005270_66842be5f375"
+          ],
+          "errors": [],
+          "labels": [
+            "P1",
+            "P2",
+            "P3",
+            "P4"
+          ],
+          "sentence": "According to, Virginia has 43 state parks in its system. provides the specific number of state parks in Virginia, while confirms the same information without additional details. and are irrelevant to the question about the number of state parks [P1][P2][P3][P4].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 4,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "When did season 4 of jersey shore first air?",
+            "short_answers": [
+              "August 4, 2011"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "When did season 4 of jersey shore last air?",
+            "short_answers": [
+              "October 20, 2011"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "When did season 5 of jersey shore first air?",
+            "short_answers": [
+              "January 5, 2012"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "When did season 5 of jersey shore last air?",
+            "short_answers": [
+              "March 15, 2012"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "When did season 6 of jersey shore first air?",
+            "short_answers": [
+              "October 4, 2012"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "When did season 6 of jersey shore last air?",
+            "short_answers": [
+              "December 20, 2012"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 6
+      },
+      "example_id": "asqa_dev_00013",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "5",
+              "2018"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_001766_0996df0a734b"
+          ],
+          "errors": [],
+          "labels": [
+            "P4"
+          ],
+          "sentence": "The last season of Jersey Shore aired on April 5, 2018 [P4].",
+          "sentence_index": 0,
+          "structure_passed": true
+        },
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_001766_0996df0a734b"
+          ],
+          "errors": [],
+          "labels": [
+            "P4"
+          ],
+          "sentence": "It was followed by Jersey Shore: Family Vacation, which premiered on the same date [P4].",
+          "sentence_index": 1,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 6,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 2,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "What season of Grey's Anatomy was the plane crash involving six doctors?",
+            "short_answers": [
+              "season 8"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "What season of Grey's Anatomy was the plane crash in Seattle that brought memories of a previous plane crash?",
+            "short_answers": [
+              "season 11"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "What season of Grey's Anatomy was the plane crash that claimed the life of Lexie Grey?",
+            "short_answers": [
+              "8"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "What season of Grey's Anatomy was the plane crash in downtown Seattle?",
+            "short_answers": [
+              "11"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 4
+      },
+      "example_id": "asqa_dev_00014",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "Flight"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007769_b16c168e34c0"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The plane crash occurred in the eighth season of Grey's Anatomy, specifically in the episode \"Flight\". [P1]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 4,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00020",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "Stealers Wheel"
+            ],
+            "question": "Which band sings the 1973 song \"Stuck in the Middle with You\"?",
+            "short_answers": [
+              "Stealers Wheel"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who sings the lead vocals in the 1973 song \"Stuck in the Middle with You\"?",
+            "short_answers": [
+              "Gerry Rafferty"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who sings harmony in the 1973 song \"Stuck in the Middle with You\"?",
+            "short_answers": [
+              "Joe Egan"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who sings the 2004 song \"Stuck in the  Middle\"?",
+            "short_answers": [
+              "Clea"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who sings the theme song for the TV show Stuck in the Middle?",
+            "short_answers": [
+              "Sonus"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.2,
+        "short_answer_hits": 1,
+        "short_answer_total": 5
+      },
+      "example_id": "asqa_dev_00021",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "Stuck in the Middle with You"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007785_11c360a9e575"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The song \"Stuck in the Middle with You\" was originally performed by the band Stealers Wheel [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        },
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_008768_4f712ab6b120"
+          ],
+          "errors": [],
+          "labels": [
+            "P2"
+          ],
+          "sentence": "Later, it was covered by Country-rock singer Juice Newton [P2].",
+          "sentence_index": 1,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.2,
+        "asqa_short_answer_hits": 1,
+        "asqa_short_answer_total": 5,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 2,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00027",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "How many gold medals did Australia win in the 200 Olympics?",
+            "short_answers": [
+              "16"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "How many silver medals did Australia win in the 2000 Olympics?",
+            "short_answers": [
+              "25"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "How many bronze medals did Australia win in the 2000 Olympics?",
+            "short_answers": [
+              "17"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "How many total medals did Australia win in the 2000 Olympics?",
+            "short_answers": [
+              "58"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 4
+      },
+      "example_id": "asqa_dev_00029",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "2",
+              "2000"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007810_0b9cdff9fdfc",
+            "asqa_passage_007809_6ba69b5d199f"
+          ],
+          "errors": [],
+          "labels": [
+            "P1",
+            "P2"
+          ],
+          "sentence": "Australia won 2 medals in the 2000 Summer Olympics. [P1] [P2]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 4,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00030",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "Who beat villanova in 2017 in the ncaa tournament?",
+            "short_answers": [
+              "University of Wisconsin\u2013Madison",
+              "Wisconsin",
+              "the Badgers",
+              "Wisconsin Badgers"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who beat villanova in 2015 in the ncaa tournament?",
+            "short_answers": [
+              "NC State",
+              "the Wolfpack",
+              "NC State Wolfpack",
+              "North Carolina State University"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who beat villanova in 2014 in the ncaa tournament?",
+            "short_answers": [
+              "University of Connecticut",
+              "the Huskies",
+              "UConn",
+              "UConn Huskies"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who beat villanova last year in the 2017 ncaa tournament?",
+            "short_answers": [
+              "Wisconsin"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who beat villanova last year in the 2015 ncaa tournament?",
+            "short_answers": [
+              "North Carolina State"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who beat last year in the 2014 ncaa tournament?",
+            "short_answers": [
+              "Connecticut"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 6
+      },
+      "example_id": "asqa_dev_00033",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "2018"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_000614_9f8a58f46ac9"
+          ],
+          "errors": [],
+          "labels": [
+            "P2"
+          ],
+          "sentence": "In the 2018 NCAA Division I Men's Basketball Tournament, Villanova beat Michigan to win the championship [P2].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 6,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00038",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00046",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00052",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00054",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00056",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "Beyonc\u00e9 Knowles"
+            ],
+            "question": "Who from Texas wrote brown eyes by destiny's child?",
+            "short_answers": [
+              "Beyonc\u00e9 Giselle Knowles-Carter",
+              "Beyonc\u00e9 Knowles"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "Walter Afanasieff"
+            ],
+            "question": "Who from Brazil wrote brown eyes by destiny's child?",
+            "short_answers": [
+              "Walter Afanasieff"
+            ]
+          }
+        ],
+        "short_answer_coverage": 1.0,
+        "short_answer_hits": 2,
+        "short_answer_total": 2
+      },
+      "example_id": "asqa_dev_00064",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007936_136d6157a5f7",
+            "asqa_passage_007932_c290b994879a"
+          ],
+          "errors": [],
+          "labels": [
+            "P1",
+            "P2"
+          ],
+          "sentence": "Brown Eyes, which is a song by Destiny's Child from their album Survivor, was written and composed by Beyonc\u00e9 Knowles and Walter Afanasieff [P1][P2].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 1.0,
+        "asqa_short_answer_hits": 2,
+        "asqa_short_answer_total": 2,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00069",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "Vibranium"
+            ],
+            "question": "What material is Captain Americas shield made out of mostly?",
+            "short_answers": [
+              "Vibranium",
+              "Vibranium-steel alloy",
+              "Steel"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "What are all the materials Captain America's shield  ismade out of?",
+            "short_answers": [
+              "Vibranium, steel alloy, and an unknown catalyst"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.5,
+        "short_answer_hits": 1,
+        "short_answer_total": 2
+      },
+      "example_id": "asqa_dev_00081",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_002119_6eaf0ab39c0b"
+          ],
+          "errors": [],
+          "labels": [
+            "P2"
+          ],
+          "sentence": "Captain America's shield is made out of vibranium [P2].",
+          "sentence_index": 0,
+          "structure_passed": true
+        },
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_002119_6eaf0ab39c0b"
+          ],
+          "errors": [],
+          "labels": [
+            "P2"
+          ],
+          "sentence": "Vibranium is a fictional metal used in Captain America's shield, which is first mentioned in the original comics [P2].",
+          "sentence_index": 1,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.5,
+        "asqa_short_answer_hits": 1,
+        "asqa_short_answer_total": 2,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 2,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "blood"
+            ],
+            "question": "In section one of the dream of the rood what is the rood eventually drenched in beyond the gems?",
+            "short_answers": [
+              "blood"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "In section two of the dream of the rood what is the rood eventually drenched in?",
+            "short_answers": [
+              "gold and silver"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "In section one of the dream of the rood what precious items is the rood drenched in?",
+            "short_answers": [
+              "gems"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.3333333333333333,
+        "short_answer_hits": 1,
+        "short_answer_total": 3
+      },
+      "example_id": "asqa_dev_00082",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007981_bcd232b13cfa"
+          ],
+          "errors": [],
+          "labels": [
+            "P3"
+          ],
+          "sentence": "In the dream of the Rood, the rood is eventually drenched in blood [P3].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.3333333333333333,
+        "asqa_short_answer_hits": 1,
+        "asqa_short_answer_total": 3,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "1037"
+            ],
+            "question": "When did the Seljuk Empire begin?",
+            "short_answers": [
+              "1037"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "1194"
+            ],
+            "question": "When did the Seljuk Empire end?",
+            "short_answers": [
+              "1194"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "1037"
+            ],
+            "question": "When did the seljuk empire begin?",
+            "short_answers": [
+              "1037"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "1194"
+            ],
+            "question": "When did the seljuk empire end?",
+            "short_answers": [
+              "1194"
+            ]
+          }
+        ],
+        "short_answer_coverage": 1.0,
+        "short_answer_hits": 4,
+        "short_answer_total": 4
+      },
+      "example_id": "asqa_dev_00083",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "1037"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007985_ca2ac173be97"
+          ],
+          "errors": [],
+          "labels": [
+            "P3"
+          ],
+          "sentence": "The Seljuk Empire began in 1037 [P3].",
+          "sentence_index": 0,
+          "structure_passed": true
+        },
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "1194"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007984_31852b19b42b",
+            "asqa_passage_007986_bb7b4fbdd2bb"
+          ],
+          "errors": [],
+          "labels": [
+            "P1",
+            "P2"
+          ],
+          "sentence": "It declined in the 1140s and was supplanted by the Khwarazmian Empire by 1194 [P1] and [P2].",
+          "sentence_index": 1,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 1.0,
+        "asqa_short_answer_hits": 4,
+        "asqa_short_answer_total": 4,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 2,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00084",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "Paul Simon"
+            ],
+            "question": "Who originally sang still crazy after all these years?",
+            "short_answers": [
+              "Paul Simon"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who sang still crazy after all these years in 2000?",
+            "short_answers": [
+              "Willie Nelson"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who sang still crazy after all these years in 1996?",
+            "short_answers": [
+              "Karen Carpenter"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who sang still crazy after all these years in 1993?",
+            "short_answers": [
+              "Ray Charles"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.25,
+        "short_answer_hits": 1,
+        "short_answer_total": 4
+      },
+      "example_id": "asqa_dev_00086",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007995_0b0a50126513"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Still Crazy After All These Years was sung by Paul Simon [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        },
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007994_bf75751faed1"
+          ],
+          "errors": [],
+          "labels": [
+            "P2"
+          ],
+          "sentence": "The song was also included on his album Still Crazy After All These Years [P2].",
+          "sentence_index": 1,
+          "structure_passed": true
+        },
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_000703_986323829c33",
+            "asqa_passage_005819_716d11d317b9"
+          ],
+          "errors": [],
+          "labels": [
+            "P3",
+            "P4"
+          ],
+          "sentence": "It is important to note that this song was not sung by Nat King Cole [P3] or Jon B [P4].",
+          "sentence_index": 2,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.25,
+        "asqa_short_answer_hits": 1,
+        "asqa_short_answer_total": 4,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 3,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "When does the 2017-2018 champions league group stage start?",
+            "short_answers": [
+              "12 September 2017"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "When does the 2016-2017 champions league group stage start?",
+            "short_answers": [
+              "13 September 2016"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "When does the 2015-2016 champions league group stage start?",
+            "short_answers": [
+              "15 September 2015"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "When did the 2017-18 UEFA Champions League group stage start?",
+            "short_answers": [
+              "12 September 2017"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "When did the 2016-17 UEFA Champions League group stage start?",
+            "short_answers": [
+              "13 September 2016"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "When did the 2015-16 UEFA Champions League group stage start?",
+            "short_answers": [
+              "15 September 2015"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 6
+      },
+      "example_id": "asqa_dev_00089",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_009457_a98a17b00f55"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "The UEFA Champions League group stage starts with two qualification streams for teams that do not receive direct entry to the tournament proper, but the passage does not specify when these qualification streams begin. [P1]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 6,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00102",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00107",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "David Charvet"
+            ],
+            "question": "Who played Matt Brody on the original Baywatch TV show?",
+            "short_answers": [
+              "David Charvet"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "Zac Efron"
+            ],
+            "question": "Who played Matt Brody in the original Baywatch movie?",
+            "short_answers": [
+              "Zac Efron"
+            ]
+          }
+        ],
+        "short_answer_coverage": 1.0,
+        "short_answer_hits": 2,
+        "short_answer_total": 2
+      },
+      "example_id": "asqa_dev_00112",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "2017"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_008057_4ad9e42af9d1"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "According to, Zac Efron played Matt Brody in the 2017 film Baywatch [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        },
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_008056_efd6dd7e99f8"
+          ],
+          "errors": [],
+          "labels": [
+            "P2"
+          ],
+          "sentence": "However, states that David Charvet played Matt Brody in the television series Baywatch [P2].",
+          "sentence_index": 1,
+          "structure_passed": true
+        },
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_008056_efd6dd7e99f8"
+          ],
+          "errors": [],
+          "labels": [
+            "P2"
+          ],
+          "sentence": "Therefore, the actor who played Matt Brody in the original Baywatch (television series) was David Charvet [P2].",
+          "sentence_index": 2,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 1.0,
+        "asqa_short_answer_hits": 2,
+        "asqa_short_answer_total": 2,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 3,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00113",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "Who was the president of indian national congress when india became free due to the Indian Independence Act 1947 being passed?",
+            "short_answers": [
+              "J. B. Kripalani",
+              "Jivatram Bhagwandas Kripalani",
+              "Acharya Kripalani"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who was the president of indian national congress when india became free due to the Constitution of India taking effect?",
+            "short_answers": [
+              "Purushottam Das Tandon"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 2
+      },
+      "example_id": "asqa_dev_00118",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "1947"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_003707_c9c396ac3c79"
+          ],
+          "errors": [],
+          "labels": [
+            "P2"
+          ],
+          "sentence": "When India became free in 1947, the president of the Indian National Congress was Sardar Vallabhbhai Patel [P2].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 2,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "Sir Thomas Malory",
+              "Thomas Malory"
+            ],
+            "question": "Who is widely accepted as the author of a romance called le morte d'arthur about the death of king arthur?",
+            "short_answers": [
+              "Sir Thomas Malory",
+              "Thomas Malory"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "How does the author of a romance called le morte d'arthur about the death of king arthur reference himself in his work?",
+            "short_answers": [
+              "Thomas Malleorre",
+              "\"Knyght presoner Thomas Malleorre\"",
+              "Knyght presoner Thomas Malleorre"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "According to the original publisher, who wrote a romance called le morte d'arthur about the death of king arthur?",
+            "short_answers": [
+              "\"Sir Thomas Maleore\"",
+              "Sir Thomas Maleore",
+              "Thomas Maleore"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.3333333333333333,
+        "short_answer_hits": 1,
+        "short_answer_total": 3
+      },
+      "example_id": "asqa_dev_00119",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_008076_3eb3c2d1f8ec"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Sir Thomas Malory wrote a romance called Le Morte d'Arthur about the death of King Arthur [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.3333333333333333,
+        "asqa_short_answer_hits": 1,
+        "asqa_short_answer_total": 3,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00125",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "To what team did kevin durant go in the nba draft?",
+            "short_answers": [
+              "Seattle SuperSonics",
+              "Supersonics",
+              "Seattle"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Where in the draft order did kevin durant go in the nba draft?",
+            "short_answers": [
+              "second overall",
+              "second"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Where did kevin durant go to college during the nba draft?",
+            "short_answers": [
+              "University of Texas"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 3
+      },
+      "example_id": "asqa_dev_00136",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "2009",
+              "2009"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007369_e3ac4b5569bf",
+            "asqa_passage_007369_e3ac4b5569bf"
+          ],
+          "errors": [],
+          "labels": [
+            "P2",
+            "P2"
+          ],
+          "sentence": "Kevin Durant went to the Golden State Warriors in the 2009 NBA draft. [P2] Kevin Durant was selected with the seventh overall pick in the 2009 NBA draft by the Golden State Warriors. [P2]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 3,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "Elmer Fudd"
+            ],
+            "question": "The hunting guy who tries to kill bugs bunny?",
+            "short_answers": [
+              "Elmer Fudd"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "Yosemite Sam"
+            ],
+            "question": "The gun-slinging guy who tries to kill bugs bunny?",
+            "short_answers": [
+              "Renegade Sam",
+              "Yosemite Sam"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "Elmer Fudd"
+            ],
+            "question": "The guy with unusual speech who tries to kill bugs bunny?",
+            "short_answers": [
+              "Egghead",
+              "Elmer Fudd",
+              "Elmer J. Fudd"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "Yosemite Sam"
+            ],
+            "question": "The prospector guy who tries to kill bugs bunny?",
+            "short_answers": [
+              "Yosemite Sam"
+            ]
+          }
+        ],
+        "short_answer_coverage": 1.0,
+        "short_answer_hits": 4,
+        "short_answer_total": 4
+      },
+      "example_id": "asqa_dev_00138",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_008129_5575eb005db5"
+          ],
+          "errors": [],
+          "labels": [
+            "P2"
+          ],
+          "sentence": "Elmer Fudd tries to kill Bugs Bunny [P2].",
+          "sentence_index": 0,
+          "structure_passed": true
+        },
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_008131_108f9a94d842"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Yosemite Sam also tries to kill Bugs Bunny [P1].",
+          "sentence_index": 1,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 1.0,
+        "asqa_short_answer_hits": 4,
+        "asqa_short_answer_total": 4,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 2,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00140",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "Carlton",
+              "Essendon"
+            ],
+            "question": "Who's won the most men's premierships in vfl/afl?",
+            "short_answers": [
+              "Carlton",
+              "Essendon",
+              "Essendon and Carlton"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who's won the most men's reserves premierships in vfl/afl?",
+            "short_answers": [
+              "Melbourne"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who's won the most men's under-19s premierships in vfl/afl?",
+            "short_answers": [
+              "Richmond"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who's won the most women's premierships in afl?",
+            "short_answers": [
+              "Adelaide"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.25,
+        "short_answer_hits": 1,
+        "short_answer_total": 4
+      },
+      "example_id": "asqa_dev_00144",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_008149_4515dc346672"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Carlton and Essendon have won the most premierships in AFL with sixteen each [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.25,
+        "asqa_short_answer_hits": 1,
+        "asqa_short_answer_total": 4,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [
+              "National Fascist Party"
+            ],
+            "question": "What party took control of the Italian government in 1922?",
+            "short_answers": [
+              "National Fascist Party"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "Benito Mussolini"
+            ],
+            "question": "What leader took control of the Italian government in 1922?",
+            "short_answers": [
+              "Benito Mussolini"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "What faction took control of the Italian government in 1922?",
+            "short_answers": [
+              "Italian fascists"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "National Fascist Party"
+            ],
+            "question": "Who is the party that took control of the italian government in 1922?",
+            "short_answers": [
+              "National Fascist Party",
+              "PNF",
+              "Partito Nazionale Fascista"
+            ]
+          },
+          {
+            "matched_short_answers": [
+              "Benito Mussolini"
+            ],
+            "question": "Who is the prime minister that took control of the italian government in 1922?",
+            "short_answers": [
+              "Benito Mussolini",
+              "Benito Amilcare Andrea Mussolini"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.8,
+        "short_answer_hits": 4,
+        "short_answer_total": 5
+      },
+      "example_id": "asqa_dev_00149",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "1922",
+              "1943"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_008172_7bcb30da9c0c"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Fascist Italy was governed by the National Fascist Party from 1922 to 1943 with Benito Mussolini as prime minister [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        },
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "1922"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_008172_7bcb30da9c0c"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "In 1922, Benito Mussolini took control of the Italian government [P1].",
+          "sentence_index": 1,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.8,
+        "asqa_short_answer_hits": 4,
+        "asqa_short_answer_total": 5,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 2,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "Where does the frontal branch of the ophthalmic nerve exit the skull?",
+            "short_answers": [
+              "superior orbital fissure and supraorbital notch"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Where does the lacrimal nerve of the ophthalmic nerve exit the skull?",
+            "short_answers": [
+              "passes through the orbit superiorly"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Where does the nasociliary branch of the ophthalmic nerve exit the skull?",
+            "short_answers": [
+              "through the nasal bones",
+              "through the anterior ethmoidal foramen"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 3
+      },
+      "example_id": "asqa_dev_00167",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_002090_a91258e009c8",
+            "asqa_passage_002090_a91258e009c8"
+          ],
+          "errors": [],
+          "labels": [
+            "P1",
+            "P4"
+          ],
+          "sentence": "The ophthalmic nerve exits the skull through the optic canal in the sphenoid bone. [P1][P4]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 3,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00171",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "What date does Callie Torres first appear in Grey's Anatomy?",
+            "short_answers": [
+              "February 26, 2006"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Which episode does Callie Torres first appear in Grey's Anatomy?",
+            "short_answers": [
+              "\"What Have I Done to Deserve This?\" (2.19)"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "What date does Callie Torres start to appear in Grey's Anatomy as a series regular?",
+            "short_answers": [
+              "September 21, 2006"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "What episode Callie Torres start to appear in Grey's Anatomy as a series regular?",
+            "short_answers": [
+              "\"Time Has Come Today\" (3.01)"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 4
+      },
+      "example_id": "asqa_dev_00178",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [
+              "A Change Is Gonna Come"
+            ],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_007706_f9eaf2c4d7e6"
+          ],
+          "errors": [],
+          "labels": [
+            "P3"
+          ],
+          "sentence": "Callie Torres comes into the show in the fourth season premiere of Grey's Anatomy, titled \"A Change Is Gonna Come\". [P3]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 4,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00182",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {},
+      "example_id": "asqa_dev_00200",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "asqa",
+      "domain_details": {
+        "matched_pairs": [
+          {
+            "matched_short_answers": [],
+            "question": "Who won the best actor award for the 2017 oscars?",
+            "short_answers": [
+              "Gary Oldman",
+              "Gary Leonard Oldman"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who won the best actor award for the 2016 oscars?",
+            "short_answers": [
+              "Caleb Casey McGuire Affleck-Boldt",
+              "Casey Affleck"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who won the best actor award for the 2015 oscars?",
+            "short_answers": [
+              "Leonardo Wilhelm DiCaprio",
+              "Leonardo DiCaprio"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who won the best actor award for the 2017 Oscars?",
+            "short_answers": [
+              "Gary Oldman"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who won the best actor award for the 2016 Oscars?",
+            "short_answers": [
+              "Casey Affleck"
+            ]
+          },
+          {
+            "matched_short_answers": [],
+            "question": "Who won the best actor award for the 2015 Oscars?",
+            "short_answers": [
+              "Leonardo DiCaprio"
+            ]
+          }
+        ],
+        "short_answer_coverage": 0.0,
+        "short_answer_hits": 0,
+        "short_answer_total": 6
+      },
+      "example_id": "asqa_dev_00211",
+      "run_id": "repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "asqa_proxy": {
+            "explicit_anchors": [],
+            "missing_anchors": [],
+            "passed": true
+          },
+          "cited_passage_ids": [
+            "asqa_passage_002400_d47b15935aec",
+            "asqa_passage_002400_d47b15935aec"
+          ],
+          "errors": [],
+          "labels": [
+            "P2",
+            "P2"
+          ],
+          "sentence": "Based on Passage [P2], the best actor award at the Oscars was won by John McAdon for his role in Three Billboards Outside Ebbing, Missouri. [P2]",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_asqa_dev_eval_200_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": 0.0,
+        "asqa_short_answer_hits": 0,
+        "asqa_short_answer_total": 6,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": null,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [
+          "fin_passage_000_00"
+        ],
+        "gold_answerable": true
+      },
+      "example_id": "fin_q_000",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": false,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_001_01"
+        ],
+        "company_name": "Aster Quiln Systems",
+        "expected_passage_ids": [
+          "fin_passage_001_01"
+        ],
+        "gold_answer": "60 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "operating_income",
+        "period": "Q2 FY2025"
+      },
+      "example_id": "fin_q_001",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_001_01"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Aster Quiln Systems in Q2 FY2025 had an operating income of 60 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_002_02"
+        ],
+        "company_name": "Brindle Vale Robotics",
+        "expected_passage_ids": [
+          "fin_passage_002_02"
+        ],
+        "gold_answer": "236 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_002",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_002_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Brindle Vale Robotics in Q3 FY2025 had a cash reserve of 236 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [
+          "fin_passage_003_00"
+        ],
+        "gold_answerable": true
+      },
+      "example_id": "fin_q_003",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": false,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_004_01"
+        ],
+        "company_name": "Cobalt Nera Foods",
+        "expected_passage_ids": [
+          "fin_passage_004_01"
+        ],
+        "gold_answer": "96 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "operating_income",
+        "period": "Q2 FY2025"
+      },
+      "example_id": "fin_q_004",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_004_01"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Cobalt Nera Foods in Q2 FY2025 had an operating income of 96 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_005_02"
+        ],
+        "company_name": "Cobalt Nira Foods",
+        "expected_passage_ids": [
+          "fin_passage_005_02"
+        ],
+        "gold_answer": "277 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_005",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_005_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Cobalt Nira Foods in Q3 FY2025 had a cash reserve of 277 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_006_00"
+        ],
+        "company_name": "Dovetail Orbis Labs",
+        "expected_passage_ids": [
+          "fin_passage_006_00"
+        ],
+        "gold_answer": "212 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "revenue",
+        "period": "Q1 FY2025"
+      },
+      "example_id": "fin_q_006",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_006_00"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Dovetail Orbis Labs in Q1 FY2025 had a revenue of 212 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_007_01"
+        ],
+        "company_name": "Dovetail Orbix Labs",
+        "expected_passage_ids": [
+          "fin_passage_007_01"
+        ],
+        "gold_answer": "128 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "operating_income",
+        "period": "Q2 FY2025"
+      },
+      "example_id": "fin_q_007",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_007_01"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Dovetail Orbix Labs in Q2 FY2025 had an operating income of 128 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "expected_passage_ids": [
+          "fin_passage_008_02"
+        ],
+        "gold_answerable": true
+      },
+      "example_id": "fin_q_008",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": true,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": null,
+        "errors": [],
+        "exact_answer_correct": false,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 0,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_009_00"
+        ],
+        "company_name": "Eldin Quarte Media",
+        "expected_passage_ids": [
+          "fin_passage_009_00"
+        ],
+        "gold_answer": "260 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "revenue",
+        "period": "Q1 FY2025"
+      },
+      "example_id": "fin_q_009",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_009_00"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Eldin Quarte Media in Q1 FY2025 had a revenue of 260 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_010_01"
+        ],
+        "company_name": "Fennel Arc Devices",
+        "expected_passage_ids": [
+          "fin_passage_010_01"
+        ],
+        "gold_answer": "147 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "operating_income",
+        "period": "Q2 FY2025"
+      },
+      "example_id": "fin_q_010",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_010_01"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Fennel Arc Devices in Q2 FY2025 had an operating income of 147 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_011_02"
+        ],
+        "company_name": "Glimmer Nocturne Works",
+        "expected_passage_ids": [
+          "fin_passage_011_02"
+        ],
+        "gold_answer": "372 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_011",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_011_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Glimmer Nocturne Works in Q3 FY2025 had a cash reserve of 372 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_012_00"
+        ],
+        "company_name": "Harbor Vellum Tools",
+        "expected_passage_ids": [
+          "fin_passage_012_00"
+        ],
+        "gold_answer": "303 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "revenue",
+        "period": "Q1 FY2025"
+      },
+      "example_id": "fin_q_012",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_012_00"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Harbor Vellum Tools in Q1 FY2025 had a revenue of 303 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_013_01"
+        ],
+        "company_name": "Ivory Lattice Energy",
+        "expected_passage_ids": [
+          "fin_passage_013_01"
+        ],
+        "gold_answer": "162 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "operating_income",
+        "period": "Q2 FY2025"
+      },
+      "example_id": "fin_q_013",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_013_01"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Ivory Lattice Energy in Q2 FY2025 had an operating income of 162 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_014_02"
+        ],
+        "company_name": "Juniper Solace Textiles",
+        "expected_passage_ids": [
+          "fin_passage_014_02"
+        ],
+        "gold_answer": "447 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_014",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_014_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Juniper Solace Textiles in Q3 FY2025 had a cash reserve of 447 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_015_00"
+        ],
+        "company_name": "Kestrel Umber Engines",
+        "expected_passage_ids": [
+          "fin_passage_015_00"
+        ],
+        "gold_answer": "357 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "revenue",
+        "period": "Q1 FY2025"
+      },
+      "example_id": "fin_q_015",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_015_00"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Kestrel Umber Engines in Q1 FY2025 had a revenue of 357 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_016_01"
+        ],
+        "company_name": "Luma Wisp Analytics",
+        "expected_passage_ids": [
+          "fin_passage_016_01"
+        ],
+        "gold_answer": "196 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "operating_income",
+        "period": "Q2 FY2025"
+      },
+      "example_id": "fin_q_016",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_016_01"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Luma Wisp Analytics in Q2 FY2025 had an operating income of 196 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_017_02"
+        ],
+        "company_name": "Morrow Sable Components",
+        "expected_passage_ids": [
+          "fin_passage_017_02"
+        ],
+        "gold_answer": "462 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "cash_reserve",
+        "period": "Q3 FY2025"
+      },
+      "example_id": "fin_q_017",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_017_02"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Morrow Sable Components in Q3 FY2025 had a cash reserve of 462 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_018_00"
+        ],
+        "company_name": "Nacre Fable Holdings",
+        "expected_passage_ids": [
+          "fin_passage_018_00"
+        ],
+        "gold_answer": "408 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "revenue",
+        "period": "Q1 FY2025"
+      },
+      "example_id": "fin_q_018",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_018_00"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Nacre Fable Holdings in Q1 FY2025 had a revenue of 408 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    },
+    {
+      "dataset": "finance",
+      "domain_details": {
+        "checks": {
+          "cited_passage_id": true,
+          "company_name": true,
+          "metric_type": true,
+          "numeric_value": true,
+          "period": true
+        },
+        "cited_passage_ids": [
+          "fin_passage_019_01"
+        ],
+        "company_name": "Orchid Zephyr Foundry",
+        "expected_passage_ids": [
+          "fin_passage_019_01"
+        ],
+        "gold_answer": "216 million fictional credits",
+        "gold_answerable": true,
+        "metric_type": "operating_income",
+        "period": "Q2 FY2025"
+      },
+      "example_id": "fin_q_019",
+      "run_id": "repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor",
+      "sentences": [
+        {
+          "cited_passage_ids": [
+            "fin_passage_019_01"
+          ],
+          "errors": [],
+          "labels": [
+            "P1"
+          ],
+          "sentence": "Orchid Zephyr Foundry in Q2 FY2025 had an operating income of 216 million fictional credits [P1].",
+          "sentence_index": 0,
+          "structure_passed": true
+        }
+      ],
+      "source_file": "outputs\\runs\\locked\\repair_plus_verifier_finance_finance_full_100_3b_generated_distractor_distractor\\predictions.jsonl",
+      "summary": {
+        "abstained": false,
+        "asqa_short_answer_coverage": null,
+        "asqa_short_answer_hits": null,
+        "asqa_short_answer_total": null,
+        "citation_format_valid": true,
+        "correct_citation": true,
+        "errors": [],
+        "exact_answer_correct": true,
+        "false_attribution": false,
+        "passed": true,
+        "sentence_count": 1,
+        "support_passed": true
+      },
+      "system": "repair_plus_verifier"
+    }
+  ]
+}
